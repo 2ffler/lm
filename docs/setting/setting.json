@@ -1,0 +1,23 @@
+{
+	"defultT" : {
+		"Color": "f000000",
+		"mBack": "mFFFFFF",
+		"iColor": "i9DE693",
+		"iBack": "bA0B5D9",
+		"Back": "if000000"
+	},
+	"whiteT" : {
+		"Color": "f000000",
+		"mBack": "mFFFFFF",
+		"iColor": "iD5E0F4",
+		"iBack": "bEDEFF3",
+		"Back": "if000000"
+	},
+	"blackT" : {
+		"Color": "fFFFFFF",
+		"mBack": "m2A2A2A",
+		"iColor": "i9DE693",
+		"iBack": "b1A1A1A",
+		"Back": "if000000"
+	}
+}
