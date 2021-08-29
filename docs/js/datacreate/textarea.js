@@ -1,15 +1,25 @@
+let requestURL = './setting/setting.json'
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+
+request.responseType = 'json';
+request.send();
+
+console.log(request)
+
+
 function changeSender(obj){
 	obj.style.color = '#000000';
 };
 
 function mespos(obj){
-	obj.style.color = '#000000';
+	changeSender(obj);
 	change = document.querySelector("button[name='addmessage']");
 	change.style = "display: block;";
 };
 
 function changeItem(obj){
-	obj.style.color = '#000000';
+	changeSender(obj);
 	change = document.querySelector("textarea[name='message']");
 	imageopen = document.querySelector('input[name="image"]');
 	tuwaopen = document.querySelector('div[id="tuwatimeopen"]');
@@ -131,11 +141,7 @@ function teeMa(obj){
 	fR = document.querySelectorAll("p[class='rightfont']");
 
 	if (obj.id == 'defultT') {
-		document.getElementById('f000000').checked = true;
-		document.getElementById('mFFFFFF').checked = true;
-		document.getElementById('i9DE693').checked = true;
-		document.getElementById('bA0B5D9').checked = true;
-		document.getElementById('if000000').checked = true;
+
 	};
 	if (obj.id == 'whiteT'){
 		document.getElementById('f000000').checked = true;
@@ -151,6 +157,12 @@ function teeMa(obj){
 		document.getElementById('b1A1A1A').checked = true;
 		document.getElementById('if000000').checked = true;
 	};
+
+	document.getElementById('f000000').checked = true;
+	document.getElementById('mFFFFFF').checked = true;
+	document.getElementById('i9DE693').checked = true;
+	document.getElementById('bA0B5D9').checked = true;
+	document.getElementById('if000000').checked = true;
 
 	var design = document.getElementById("design");
 
