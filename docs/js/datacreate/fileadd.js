@@ -54,53 +54,7 @@ function senderadd() {
 function senderadd5() {
 	var iii = 0;
 	while (iii < 5){
-		var n = i + 1;
-
-		var h3 = document.createElement('h3');
-		h3.id = 'h3_' + n;
-		h3.innerHTML = '<i class="num">' + n + '</i>名様';
-
-		var h4sender = document.createElement('h4');
-		h4sender.id = 'h4s_' + n;
-		h4sender.innerHTML = 'ユザネ';
-
-		var h4icon = document.createElement('h4');
-		h4icon.id = 'h4i_' + n;
-		h4icon.innerHTML = 'アイコン';
-
-		var sender = document.createElement('input');
-		sender.type = 'text';
-		sender.id = 'sender_' + n;
-		sender.placeholder = 'メンバー名その' + n;
-
-		var iconP = document.createElement('div');
-		iconP.id = 'iconP_' + n;
-		iconP.innerHTML = "※推奨画像比率１：１<br>※正円になるので表示時は端見えない";
-
-		var iconC = document.createElement('div');
-		iconC.id = 'iconC_' + n;
-
-		var icon = document.createElement('input');
-		icon.type = 'file';
-		icon.accept = 'image/*';
-		icon.id = 'icon_' + n;
-		icon.addEventListener("change", iconPPP);
-
-		var delb = document.getElementById('delb');
-		delb.style = "display: block;";
-		delb.value = n;
-
-		var parent = document.getElementById('mem');
-
-		parent.appendChild(h3);
-		parent.appendChild(h4sender);
-		parent.appendChild(sender);
-		parent.appendChild(h4icon);
-		parent.appendChild(icon);
-		parent.appendChild(iconP);
-		parent.appendChild(iconC);
-
-		i++ ;
+		senderadd();
 		iii += 1;
 	};
 };
