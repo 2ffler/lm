@@ -90,6 +90,9 @@
 					<br>
 					<input type="checkbox" name="kidoku" id="kidoku" style="margin-left: 1em;" checked>
 					<label for="kidoku">既読表示する</label>
+					<select name="kidokuCount" style="display: none;" onchange="changeSender(this)">
+						<option value="0" hidden="">何人の既読？</option>
+					</select>
 				</div>
 				<div id="checkDT" style="display: none;">
 					<input type="radio" name="mdata" id="today" value="今日" onclick="changeData(this)" checked>
@@ -224,7 +227,6 @@
 										し文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文</p>
 									</div>
 									<div class="kidoku">
-										既読<br>
 										21:34
 									</div>
 								</div>
@@ -232,6 +234,7 @@
 							<div class="rComment">
 								<div class="rightChatting">
 									<div class="kidoku">
+										既読<br>
 										21:34
 									</div>
 									<div class="rightSay" style="background-color: #9DE693;">
