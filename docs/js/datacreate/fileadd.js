@@ -91,9 +91,24 @@ function deleteBtn(target) {
   	};
 };
 
-function selectadd(){
+function selectadd(obj){
 	var sankou = document.getElementById('delb').value;
 	var parent = document.querySelector('select[name="sender"]');
+
+	myName = document.getElementById('green').checked
+
+	var mesmenu = document.getElementById('mesmenu')
+
+	if (myName == true){
+		senderName = document.getElementById('senderNameopen')
+		senderName.disabled = false
+		senderName.checked = true
+	}
+
+	obj.innerHTML = 'メッセメンバー<br>名前アイコン追加変更'
+
+	mesmenu.style = 'display: block;'
+
 	var my = document.getElementById('green');
 	var iii = -1;
 
@@ -102,10 +117,20 @@ function selectadd(){
   	var option = document.createElement('option');
   	option.value = 0;
   	option.hidden = true;
-  	option.innerHTML = '誰のメッセ？';
+  	option.innerHTML = '誰からのメッセ？';
 
   	parent.appendChild(option);
 
+	var kidoku = document.querySelector('select[name="kidokuCount"]');
+	kidoku.innerHTML = '';
+
+  	var option = document.createElement('option');
+
+  	option.value = 0;
+  	option.hidden = true;
+  	option.innerHTML = '何人が既読した？';
+
+	kidoku.appendChild(option);
 
 	while (iii < sankou){
 		iii += 1;
@@ -117,15 +142,41 @@ function selectadd(){
 	  		option.innerHTML = "黄緑の方※名前アイコン設定ナシ";	  		
 	  	} else {
 	  		option.innerHTML = sName;
-	  	}
+	  	};
 
 	  	parent.appendChild(option);
+
+		if (iii < 2){
+			kidoku.style = "display: none;"
+			continue
+		} else if (iii == 2) {
+			kidoku.style = "display: block;"
+
+			var option = document.createElement('option');
+			option.value = 1;
+			option.innerHTML = "既読人数1人"
+			kidoku.appendChild(option);
+		};
+
+		var option = document.createElement('option');
+		option.value = iii;
+		option.innerHTML = `既読人数${iii}人`
+
+		kidoku.appendChild(option);
 	};
 };
 
 function iconPP(obj){
 	var icon = obj.id;
+	iconPPPPP(icon, obj);
+};
 
+function iconPPP(){
+	var icon = this.id;
+	iconPPPPP(icon, this);
+};
+
+function iconPPPPP(icon, obj){
 	var nnn = icon.split('_');
 
 	var n = nnn[1];
@@ -158,41 +209,4 @@ function iconPP(obj){
 	}
 	// ファイル読み取りを実行
 	reader.readAsDataURL(fileData);
-};
-
-function iconPPP(){
-	var icon = this.id;
-
-	var nnn = icon.split('_');
-
-	var n = nnn[1];
-
-	var iconP = document.getElementById('iconP_' + n);
-	var iconC = document.getElementById('iconC_' + n);
-	// 選択されたファイルの情報を取得
-	const fileData = this.files[0];
-
-	const imgType = fileData.type;
-	// 選択されたファイルが画像かどうか確認
-	if(!imgType.match(/^image/)) {
-		alert('画像ファイルじゃないんじゃないそれ。');
-		icon.value = '';
-		iconP.innerHTML = '画像だったらここにプレビュー出てくるんだけど。';
-		return;
-	}
-	var reader = new FileReader();
-	// ファイル読み取りに失敗したとき
-	reader.onerror = function() {
-		alert('読み取り失敗！')
-		iconP.style = 'display: block;';
-		iconC.innerHTML = '';
-	}
-	// ファイル読み取りに成功したとき
-	reader.onload = function() {
-		const insert = '※推奨画像比率１：１<br>※正円になるので表示時は端見えない<h4>アイコン画像プレビュー↓</h4><img src="' + reader.result + '" class="iconPreview">';
-		iconP.style = 'display: none;';
-		iconC.innerHTML = insert;
-	}
-	// ファイル読み取りを実行
-	reader.readAsDataURL(fileData);
-};
+}
