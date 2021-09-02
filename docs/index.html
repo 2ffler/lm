@@ -324,6 +324,10 @@
 				<input type="checkbox" name="delmm" id="delmm" onclick="delmesm(this)">
 				<label for="delmm">メッセージ削除メニュー表示</label>
 				<div id="mesdel" style="display: none;">
+					<div>
+						<input type="checkbox" name="delmmall" id="delmmall" onchange="delmall()">
+						<label for="delmmall">メッセージ全削除</label>
+					</div>
 					<select name="meslist" onchange="changeSender(this)">
 						<option value="0" hidden="">どのメッセ？</option>
 					</select>
