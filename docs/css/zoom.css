@@ -260,6 +260,18 @@ div#zoom .telln {
 	vertical-align: top;
 }
 
+.white{
+	margin: 0;
+	padding: 0;
+	background-image: url('./image/callphone.png');
+}
+
+.black{
+	margin: 0;
+	padding: 0;
+	background-image: url('./image/callphoneB.png');
+}
+
 div#zoom .leftSays img{
 	width: 100%;
 	margin-right: -0.5em;
