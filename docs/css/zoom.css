@@ -115,7 +115,7 @@ div#zoom .leftFaceicon {
 	height: 1.75em;
 	margin: 0;
 	padding: 0;
-	border-radius: 0.75em;
+	border-radius: 0.875em;
 	overflow: hidden;
 }
 
@@ -131,7 +131,7 @@ div#zoom .rightFaceicon{
 	margin: 0;
 	padding: 0;
  	vertical-align: top;
-	border-radius: 0.75em;
+	border-radius: 0.875em;
 }
 
 div#zoom .rightFaceicon img{
