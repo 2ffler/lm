@@ -170,7 +170,7 @@ function addmessage(obj) {
 
 			txtContents.style = `background-color: ${mesbackcolor};`
 			sankaku.style = `border-${border}-color: ${mesbackcolor};`
-			txtP.style = `color: ${fontcolor};`
+			txtP.style = `color: ${fontcolor}; border-color: ${mesbackcolor};`
 
 			if (check3type == 2 || check3type == 3){
 				txtP.innerHTML = '<div class="telln"><div class="tell">)</div></div>';
@@ -282,5 +282,5 @@ function addmessage(obj) {
 	};
 
 	button = document.getElementById('create');
-	button.style = 'display: block;'
+	button.style = 'display: inline-block;'
 };
