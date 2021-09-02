@@ -28,6 +28,21 @@ if(window.File) {
 			const insert = '<img src="' + reader.result + '" class="backPreview">';
 			backPreview.style = 'display: none;';
 			backPreviewC.innerHTML = insert;
+
+			img = document.getElementById('backPreviewC')
+
+			height = img.clientHeight
+
+			console.log(height)
+
+			if (height < 40) {
+				count = Math.ceil(40 / height)
+				str = ''
+				for (var i = 0; i < count; i++){
+					str += insert
+				}
+				backPreviewC.innerHTML = str;
+			}
 		}
 		// ファイル読み取りを実行
 		reader.readAsDataURL(fileData);
