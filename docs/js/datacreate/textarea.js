@@ -523,16 +523,23 @@ function delmessage(){
 		talkadd.innerHTML = '';
 
 		for (var i in addlist.childNodes) {
-			if (i == addlist.firstChild){
+			x = addlist.childNodes.item(i)
+			if (x.value == '0' || x.value == 'new'){
 				continue;
 			};
-			i.remove();
+
+			if (x.nodeName == 'option') {
+				addlist.childNodes.item(i).remove();
+			};
 		};
 		for (var i in dellist.childNodes) {
-			if (i == dellist.firstChild){
+			x = dellist.childNodes.item(i)
+			if (x.value == '0'){
 				continue;
 			};
-			i.remove();
+			if (x.nodeName == 'option') {
+				dellist.childNodes.item(i).remove();
+			};
 		};
 		addlist.style = 'color: #666666;'
 		dellist.style = 'color: #666666;'
