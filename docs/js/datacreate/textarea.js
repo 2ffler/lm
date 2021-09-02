@@ -521,9 +521,22 @@ function delmessage(){
 		mesdel = document.getElementById('mesdel')
 
 		talkadd.innerHTML = '';
-		dellist.innerHTML = '<option value="0" hidden="">どのメッセ？</option>';
-		addlist.innerHTML= '<option value="0" hidden>どこに入れる？</option><option value="new">一番下（新）</option>';
+
+		for (var i in addlist.childNodes) {
+			if (i == addlist.firstChild){
+				continue;
+			};
+			i.remove();
+		};
+		for (var i in dellist.childNodes) {
+			if (i == dellist.firstChild){
+				continue;
+			};
+			i.remove();
+		};
 		addlist.style = 'color: #666666;'
+		dellist.style = 'color: #666666;'
+
 		mesdel.style = 'display: none;'
 	};
 
