@@ -1,15 +1,63 @@
-let requestURL = './setting/setting.json'
-let request = new XMLHttpRequest();
-request.open('GET', requestURL);
+let thisSEt = {
+	"defultT" : {
+		"Color": "f000000",
+		"mBack": "mFFFFFF",
+		"iColor": "i9DE693",
+		"iBack": "bA0B5D9",
+		"Back": "if000000"
+	},
+	"whiteT" : {
+		"Color": "f000000",
+		"mBack": "mFFFFFF",
+		"iColor": "iD5E0F4",
+		"iBack": "bEDEFF3",
+		"Back": "if000000"
+	},
+	"blackT" : {
+		"Color": "fFFFFFF",
+		"mBack": "m2A2A2A",
+		"iColor": "i9DE693",
+		"iBack": "b1A1A1A",
+		"Back": "if000000"
+	}
+}
 
-request.responseType = 'json';
-request.send();
+function nameCreate(){
+	obj =  document.querySelector('input[name="talkname"]').value;
 
-console.log(request)
+	that = obj
 
+	if (obj.length > 14) {
+		sentence = obj.match(/.{13}/g);
+		that = sentence[0] + ' …'
+	};
+
+	mesName = document.getElementById('mesName');
+	mesName.innerHTML = that;
+};
 
 function changeSender(obj){
 	obj.style.color = '#000000';
+};
+
+function changeName(obj){
+	changeSender(obj);
+	senderName = document.getElementById('senderNameopen')
+	myName = document.querySelector('input[id="green"]').checked
+	kidoku = document.getElementById('kidoku')
+
+	kidoku.disabled = false
+	kidoku.checked = true
+	senderName.disabled = false
+	senderName.checked = true
+
+	if (obj.value == 0 && myName == false){
+		senderName.checked = false
+		senderName.disabled = true
+	} else if (obj.value != 0) {
+		kidoku.checked = false
+		kidoku.disabled = true
+	};
 };
 
 function mespos(obj){
@@ -23,26 +71,23 @@ function changeItem(obj){
 	change = document.querySelector("textarea[name='message']");
 	imageopen = document.querySelector('input[name="image"]');
 	tuwaopen = document.querySelector('div[id="tuwatimeopen"]');
+	kidokukanren = document.querySelector('div[id="kidokukanren"]');
+
+	change.disabled = true;
+	change.value = '';
+	imageopen.style = "display: none;";
+	tuwaopen.style = "display: none;";
+	kidokukanren.style = "display: block;";
+
 	if (obj.value == 1){
 		change.disabled = false;
-		imageopen.style = "display: none;";
-		tuwaopen.style = "display: none;";
 	} else if (obj.value == 3){
-		change.value = '';
-		change.disabled = true;
-		imageopen.style = "display: none;";
 		tuwaopen.style = "display: block;";
+	} else if (obj.value == 4){
+		kidokukanren.style = "display: none;";
 	} else if (obj.value == 5){
-		change.value = '';
-		change.disabled = true;
 		imageopen.style = "display: block;";
-		tuwaopen.style = "display: none;";
-	} else {
-		change.value = '';
-		change.disabled = true;
-		imageopen.style = "display: none;";
-		tuwaopen.style = "display: none;";
-	}
+	};
 };
 
 function bImageclick(obj){
@@ -55,6 +100,10 @@ function bImageclick(obj){
 	preccG = document.querySelectorAll("div[class='contentsGray']");
 	preccW = document.querySelectorAll("div[class='contentsWhite']");
 	notsend = document.getElementById('notsendmessage');
+
+	contents = document.querySelectorAll("div[class='chuou']");
+	kidoku = document.querySelectorAll("div[class='kidoku']");
+
 	if (obj.value == "bimage"){
 		change.style = 'display: block;';
 		preccc.style = 'display: block;';
@@ -64,6 +113,7 @@ function bImageclick(obj){
 		preccc.style = 'display: none;';
 		precc.style = `display: block; background-color: ${obj.value};`;
 	};
+
 	if (obj.value == "#A0B5D9"){
 		precccc.style = 'background-color: transparent; color: #000000;';
 		preccccc.style = 'background-color: #FFFFFF; color: #000000;';
@@ -73,6 +123,12 @@ function bImageclick(obj){
 			preccG[iiiii].style = 'display: none;';
 			preccW[iiiii].style = 'display: none;';
 		};
+		for(var iiiii in contents){
+			contents[iiiii].style = 'color: #000000;';
+		}
+		for(var iiiii in kidoku){
+			kidoku[iiiii].style = 'color: #000000;';
+		}
 	} else if (obj.value == "#1A1A1A"){
 		precccc.style = 'background-color: transparent; color: #ffffff;';
 		preccccc.style = 'background-color: #111111; color: #ffffff;';
@@ -82,28 +138,48 @@ function bImageclick(obj){
 			preccG[iiiii].style = 'display: none;';
 			preccW[iiiii].style = 'display: inline;';
 		};
+		for(var iiiii in contents){
+			contents[iiiii].style = 'color: #FFFFFF;';
+		}
+		for(var iiiii in kidoku){
+			kidoku[iiiii].style = 'color: #FFFFFF;';
+		}
 	} else {
 		precccc.style = 'background-color: #F8F8F8; color: #000000;';
 		preccccc.style = 'background-color: #FFFFFF; color: #1A1A1A;';
 		notsend.style = 'background-color: #F7F7F7;';
+
 		for(var iiiii in preccB){
 			preccB[iiiii].style = 'display: none;';
 			preccG[iiiii].style = 'display: inline;';
 			preccW[iiiii].style = 'display: none;';
 		};
+		for(var iiiii in contents){
+			contents[iiiii].style = 'color: #000000;';
+		}
+		for(var iiiii in kidoku){
+			kidoku[iiiii].style = 'color: #000000;';
+		}
 	};
 };
 
 function checkGreen(obj){
 	change = document.querySelector("div[id='checkG']");
 	iconchange = document.querySelectorAll("div[class='rightFaceicon']");
+	senderName = document.getElementById('senderNameopen');
+	kidoku = document.getElementById('kidoku');
+
 	if (obj.checked == true) {
 		change.style = 'display: block;';
+		senderName.disabled = false
+		senderName.checked = true
 		for (var ic in iconchange) {
 			iconchange[ic].style = 'display: inline-block;';
 		};
 	} else {
 		change.style = 'display: none;';
+		senderName.checked = false
+		senderName.disabled = true
 		for (var ic in iconchange) {
 			iconchange[ic].style = 'display: none;';
 		};
@@ -136,33 +212,24 @@ function teeMa(obj){
 	mesL3 = document.querySelectorAll("div[class='left3kaku']");
 	fL = document.querySelectorAll("p[class='leftfont']");
 
-	mesR = document.querySelectorAll("div[class='rightSay']");
+	mesR = document.querySelectorAll("div[class='rightSays']");
 	mesR3 = document.querySelectorAll("div[class='right3kaku']");
 	fR = document.querySelectorAll("p[class='rightfont']");
 
-	if (obj.id == 'defultT') {
+	var it = thisSEt['defultT']
 
-	};
 	if (obj.id == 'whiteT'){
-		document.getElementById('f000000').checked = true;
-		document.getElementById('mFFFFFF').checked = true;
-		document.getElementById('iD5E0F4').checked = true;
-		document.getElementById('bEDEFF3').checked = true;
-		document.getElementById('if000000').checked = true;
+		var it = thisSEt['whiteT']
 	};
 	if (obj.id == 'blackT'){
-		document.getElementById('fFFFFFF').checked = true;
-		document.getElementById('m2A2A2A').checked = true;
-		document.getElementById('i9DE693').checked = true;
-		document.getElementById('b1A1A1A').checked = true;
-		document.getElementById('if000000').checked = true;
+		var it = thisSEt['blackT']
 	};
 
-	document.getElementById('f000000').checked = true;
-	document.getElementById('mFFFFFF').checked = true;
-	document.getElementById('i9DE693').checked = true;
-	document.getElementById('bA0B5D9').checked = true;
-	document.getElementById('if000000').checked = true;
+	document.getElementById(it['Color']).checked = true;
+	document.getElementById(it['mBack']).checked = true;
+	document.getElementById(it['iColor']).checked = true;
+	document.getElementById(it['iBack']).checked = true;
+	document.getElementById(it['Back']).checked = true;
 
 	var design = document.getElementById("design");
 
@@ -195,6 +262,10 @@ function teeMa(obj){
 	preccW = document.querySelectorAll("div[class='contentsWhite']");
 	notsend = document.getElementById('notsendmessage');
 
+	contents = document.querySelectorAll("div[class='chuou']");
+	kidoku = document.querySelectorAll("div[class='kidoku']");
+
+
 	if (backgroundcolor == "#A0B5D9"){
 		precccc.style = 'background-color: transparent; color: #000000;';
 		preccccc.style = 'background-color: #FFFFFF; color: #000000;';
@@ -204,6 +275,12 @@ function teeMa(obj){
 			preccG[iiiii].style = 'display: none;';
 			preccW[iiiii].style = 'display: none;';
 		};
+		for(var iiiii in contents){
+			contents[iiiii].style = 'color: #000000;';
+		}
+		for(var iiiii in kidoku){
+			kidoku[iiiii].style = 'color: #000000;';
+		}
 	} else if (backgroundcolor == "#1A1A1A"){
 		precccc.style = 'background-color: transparent; color: #ffffff;';
 		preccccc.style = 'background-color: #111111; color: #ffffff;';
@@ -213,6 +290,13 @@ function teeMa(obj){
 			preccG[iiiii].style = 'display: none;';
 			preccW[iiiii].style = 'display: inline;';
 		};
+		for(var iiiii in contents){
+			contents[iiiii].style = 'color: #FFFFFF;';
+		}
+		for(var iiiii in kidoku){
+			kidoku[iiiii].style = 'color: #FFFFFF;';
+		}
+
 	} else {
 		precccc.style = 'background-color: #F8F8F8; color: #000000;';
 		preccccc.style = 'background-color: #FFFFFF; color: #1A1A1A;';
@@ -222,6 +306,12 @@ function teeMa(obj){
 			preccG[iiiii].style = 'display: inline;';
 			preccW[iiiii].style = 'display: none;';
 		};
+		for(var iiiii in contents){
+			contents[iiiii].style = 'color: #000000;';
+		}
+		for(var iiiii in kidoku){
+			kidoku[iiiii].style = 'color: #000000;';
+		}
 	};
 };
 
@@ -260,7 +350,7 @@ function mcolor(obj){
 	mmcolor = design.mycolor.value;
 
 	if (mmcolor == "imescolor"){
-		mesR = document.querySelectorAll("div[class='rightSay']");
+		mesR = document.querySelectorAll("div[class='rightSays']");
 		mesR3 = document.querySelectorAll("div[class='right3kaku']");
 
 		for (var xxx in mesR) {
@@ -286,7 +376,7 @@ function ocolor(obj){
 		mmcolor = design.mescolor.value;
 	};
 
-	mesR = document.querySelectorAll("div[class='rightSay']");
+	mesR = document.querySelectorAll("div[class='rightSays']");
 	mesR3 = document.querySelectorAll("div[class='right3kaku']");
 	for (var xxx in mesR) {
 		mesR[xxx].style = `background-color: ${mmcolor};`;
@@ -301,4 +391,24 @@ function delmesm(obj){
 	} else {
 		change.style = 'display: none;';
 	};
+}
+
+function delmessage(){
+	dellist = document.querySelector("select[name='meslist']");
+
+	selecting = dellist.value
+
+	if (selecting != 0) {
+		id = selecting.replace('d', '')
+		that = document.getElementById(id);
+		add = document.querySelector(`option[value='${id}']`);
+		del = document.querySelector(`option[value='${selecting}']`);
+
+		that.remove();
+		add.remove();
+		del.remove();
+	};
+
+	dellist.value = 0
+	dellist.style = 'color: #666666;'
 }
