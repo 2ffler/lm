@@ -45,7 +45,6 @@ div#zoom .lineIcon{
 #mne{
 	display: inline-block;
 	font-size: 90%;
-	max-width: 15em;
 	overflow: hidden;
 	vertical-align: middle;
 }
