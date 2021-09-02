@@ -21,6 +21,10 @@ function imageCreateThis(image, nameing) {
 };
 
 function addmessage(obj) {
+	zoom = document.getElementById('zoom');
+
+	zoom.style = 'display: none;'
+
 	behind = document.getElementById('preView');
 	design = document.getElementById('design');
 
