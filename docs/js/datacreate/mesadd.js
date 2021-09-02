@@ -172,8 +172,14 @@ function addmessage(obj) {
 			sankaku.style = `border-${border}-color: ${mesbackcolor};`
 			txtP.style = `color: ${fontcolor}; border-color: ${mesbackcolor};`
 
+			if (fontcolor == '#FFFFFF'){
+				imgurl = 'white'
+			} else {
+				imgurl = 'black'
+			};
+
 			if (check3type == 2 || check3type == 3){
-				txtP.innerHTML = '<div class="telln"><div class="tell">)</div></div>';
+				txtP.innerHTML = `<div class="telln"><div class="${imgurl}"></div></div>`;
 
 				if (check3type == 3){
 					telltime = document.querySelector("input[name='tuwatime'").value;
