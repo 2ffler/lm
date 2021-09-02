@@ -209,7 +209,9 @@ function addmessage(obj) {
 			check51 = '既読'
 			if (checkmemberCount > 1){
 				kidokuCount = document.querySelector("select[name='kidokuCount']").value;
-				check51 += ` ${kidokuCount}`
+				if (kidokuCount > 0){
+					check51 += ` ${kidokuCount}`
+				};
 			};
 		};
 
@@ -283,4 +285,52 @@ function addmessage(obj) {
 
 	button = document.getElementById('create');
 	button.style = 'display: inline-block;'
+};
+
+function createThis() {
+	zoom = document.getElementById('zoom')
+
+	zoom.remove()
+
+	preview = document.getElementById('previeW')
+
+	zoom = preview.cloneNode(true)
+	zoom.id = 'zoom'
+
+	zoomlist = zoom.querySelectorAll('div')
+
+	height = (talkdisplay.clientHeight * 2) + (16 * 12)
+
+	for (var i in zoomlist){
+
+		if (zoomlist[i].id == 'backPreviewC'){
+			zoomlist[i].id = 'bpc'
+			zoomlist[i].style.height =  `${height}px;`
+		} else if (zoomlist[i].id == 'backcolor'){
+			zoomlist[i].id = 'bc'
+			zoomlist[i].style.height = `${height}px`;
+		} else if (zoomlist[i].id == 'lineContents'){
+			zoomlist[i].id = 'lc'
+		} else if (zoomlist[i].id == 'mesName'){
+			zoomlist[i].id = 'mne'
+		} else if (zoomlist[i].id == 'membersNum'){
+			zoomlist[i].id = 'mbn'
+		} else if (zoomlist[i].id == 'messageSendC'){
+			zoomlist[i].id = 'mssc'
+		} else if (zoomlist[i].id == 'notsendmessage'){
+			zoomlist[i].id = 'nsm'
+		} else if (zoomlist[i].id == 'talkContents'){
+			zoomlist[i].id = 'tcn'
+		} else {
+			zoomlist[i].id = `zoom${i}`
+		};
+	};
+	zoom.style = `height: ${height}px;`
+
+	parent = document.getElementById('zooming')
+	parent.appendChild(zoom)
+
+	result = document.getElementById('result')
+
+	result.style = 'display: inline-block;'
 };
