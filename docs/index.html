@@ -5,8 +5,9 @@
 	<meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
 	<title>zzzzzzz.......</title>
 	<meta name="author" content="2ffler">
-	<link rel="stylesheet" href="lockdisplay.css">
+	<link rel="stylesheet" href="css/all.css">
 	<link rel="stylesheet" href="css/hukidasi.css">
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 </head>
 <body>
 	<div id="loader-bg">
@@ -23,6 +24,7 @@
 					(グループ名/トーク相手名)
 				</h2>
 				<input type="text" name="talkname" placeholder="十四文字以上は末尾省略">
+				<button type="button" name="nameresult" class="whitebutton" onclick="nameCreate()">決定</button>
 				<h2>トークメンバー</h2>
 				<button type="button" name="senderadd" class="whitebutton" onclick="senderadd()">もうひとり！</button>
 				<button type="button" name="senderadd5" class="whitebutton" onclick="senderadd5()">もうごにん！</button>
@@ -30,9 +32,7 @@
 					<div id="mem">
 						<h3>メッセが緑の方（伝われ）</h3>
 						<input type="checkbox" name="green" id="green" onclick="checkGreen(this)">
-						<label for="green" class="green">
-							こっちもアイコンとユザネを表示
-						</label>
+						<label for="green" class="green">こっちもアイコンとユザネを表示</label>
 						<div id="checkG" style="display: none;">
 							<h4>・ユザネ</h4>
 							<input type="text" id="sender_0" class="sender" placeholder="メッセが緑の方（伝われ）">
@@ -59,69 +59,75 @@
 					</div>
 					<button id="delb" class="whitebutton" style="display: none;" value="1" onclick="deleteBtn(this)">削除</button>
 				</div>
-				<button id="selectadd" class="whitebutton" onclick="selectadd(this)">メッセ主名追加/変更</button>
-				<h2>メッセージ内容入力欄</h2>
-				<input type="checkbox" name="addD" id="addD" onclick="checkD(this)">
-				<label for="addD">
-					日付変更表示の入力
-				</label>
-				<div id="checkDF">
-					<select name="sender" onchange="changeSender(this)">
-						<option value="0" hidden>誰からのメッセ？</option>
-					</select>
-					<select name="type" onchange="changeItem(this)">
-						<option value="0" hidden>なにで届いた？</option>
-						<option value="1">メッセージ</option>
-						<option value="2">不在着信</option>
-						<option value="3">不在じゃない着信</option>
-						<option value="4">メッセージ送信取消</option>
-						<option value="5">画像が送られてきました</option>
-					</select>
-					<textarea placeholder="メッセージ内容ここ。「なにで届いた？」を「メッセージ」にすると入力可能。
+				<button id="selectadd" class="whitebutton" onclick="selectadd(this)">メッセメンバー<br>名前アイコン確定</button>
+				<div id="mesmenu" style="display: none;">
+					<h2>メッセージ内容入力欄</h2>
+					<input type="checkbox" name="addD" id="addD" onclick="checkD(this)">
+					<label for="addD">
+						日付変更表示の入力
+					</label>
+					<div id="checkDF">
+						<select name="sender" onchange="changeName(this)">
+							<option value="0" hidden>誰からのメッセ？</option>
+						</select>
+						<select name="type" onchange="changeItem(this)">
+							<option value="0" hidden>なにで届いた？</option>
+							<option value="1">メッセージ</option>
+							<option value="2">不在着信</option>
+							<option value="3">不在じゃない着信</option>
+							<option value="4">メッセージ送信取消</option>
+							<option value="5">画像が送られてきました</option>
+						</select>
+						<textarea placeholder="メッセージ内容ここ。「なにで届いた？」を「メッセージ」にすると入力可能。
 ちなみに不在着信だと不在着信表示が出てくるし不在じゃない着信だと応答時間が表記される。
 画像にすると画像アップロード用の枠が出てくる。" class="messagearea" name="message" disabled></textarea>
-					<input type="file" name="image" accept="image/*" style="display: none;">
-					<div id="tuwatimeopen" style="display: none;">
-						何時間何分何秒の通話？ <input type="time" name="tuwatime" step="2">
+						<input type="file" id="mesImage" name="image" accept="image/*" style="display: none;">
+						<div id="tuwatimeopen" style="display: none;">
+							何時間何分何秒の通話？ <input type="time" name="tuwatime" step="2" value="21:21:21">
+						</div>
+						<div id="kidokukanren">
+							<input type="checkbox" name="timehyouji" id="timehyouji" style="margin-left: 0.5em;" checked>
+							<label for="timehyouji">時間表示する</label>
+							<input type="time" name="time" value="21:15">
+							<br>
+							<input type="checkbox" name="kidoku" id="kidoku" style="margin-left: 0.5em;" checked>
+							<label for="kidoku">既読表示する</label>
+							<br>
+							<input type="checkbox" name="senderNameopen" id="senderNameopen" style="margin-left: 0.5em;" disabled>
+							<label for="senderNameopen">名前表示する</label>
+						</div>
+						<select name="kidokuCount" style="display: none;" onchange="changeSender(this)">
+						</select>
 					</div>
-					<input type="checkbox" name="timehyouji" id="timehyouji" style="margin-left: 1em;" checked>
-					<label for="timehyouji">時間表示する</label>
-					<input type="time" name="time" value="21:34">
-					<br>
-					<input type="checkbox" name="kidoku" id="kidoku" style="margin-left: 1em;" checked>
-					<label for="kidoku">既読表示する</label>
-					<select name="kidokuCount" style="display: none;" onchange="changeSender(this)">
-						<option value="0" hidden="">何人の既読？</option>
+					<div id="checkDT" style="display: none;">
+						<input type="radio" name="mdata" id="today" value="今日" onclick="changeData(this)" checked>
+						<label class="radiocheck" for="today">
+							今日
+						</label>
+						<input type="radio" name="mdata" id="yesterday" value="昨日" onclick="changeData(this)">
+						<label class="radiocheck" for="yesterday">
+							昨日
+						</label>
+						<input type="radio" name="mdata" id="mdatainput" value="0" onclick="changeData(this)">
+						<label class="radiocheck" for="mdatainput">
+							※詳細日付
+						</label>
+						<div id="mmdata" style="display: none;">
+							<input type="date" id="data" value="2018-10-31">
+							<br>
+							<input type="checkbox" name="year" checked>日付の西暦を入力する
+						</div>
+					</div>
+					<h4 style="margin-top: 0.5em;">メッセージ追加位置</h4>
+					<select name="mespos" onchange="mespos(this)">
+						<option value="0" hidden>どこに入れる？</option>
+						<option value="new">一番下（新）</option>
 					</select>
+					<button type="button" name="addmessage" class="whitebutton" style="display: none;" onclick="addmessage(this)">メッセ追加</button>
+					<button type="button" id="buttonThere" class="whitebutton" style="display: none;">内容確定</button>
+					<div id="result"></div>
+					<button type="button" id="create" class="whitebutton" style="display: none;">内容確定</button>				
 				</div>
-				<div id="checkDT" style="display: none;">
-					<input type="radio" name="mdata" id="today" value="今日" onclick="changeData(this)" checked>
-					<label class="radiocheck" for="today">
-						今日
-					</label>
-					<input type="radio" name="mdata" id="yesterday" value="昨日" onclick="changeData(this)">
-					<label class="radiocheck" for="yesterday">
-						昨日
-					</label>
-					<input type="radio" name="mdata" id="mdatainput" value="0" onclick="changeData(this)">
-					<label class="radiocheck" for="mdatainput">
-						※詳細日付
-					</label>
-					<div id="mmdata" style="display: none;">
-						<input type="date" id="data" value="2017-12-24">
-						<br>
-						<input type="checkbox" name="year" checked>日付の西暦を入力する
-					</div>
-				</div>
-				<select name="mespos" onchange="mespos(this)">
-					<option value="0" hidden>どこに入れる？</option>
-					<option value="old">一番上（古）</option>
-					<option value="new">一番下（新）</option>
-				</select>
-				<button type="button" name="addmessage" class="whitebutton" style="display: none;" onclick="addmessage(this)">メッセ追加</button>
-				<div id="buttonThere"></div>
-				<div id="result"></div>
-				<div id="createbutton"></div>				
 			</div>
 			<div class="left">
 				<div>
@@ -208,7 +214,7 @@
 						</div>
 					</div>
 				</div>
-				<h4>プレビュー↓</h4>
+				<h4>見本↓</h4>
 				<div id="previeW">
 					<div id="backPreviewC">
 					</div>
@@ -216,28 +222,42 @@
 					</div>
 					<div id="talkContents">
 						<div id="preView">
+							<div class="chuoublock">
+								<div class='chuou'>
+									今日
+								</div>
+							</div>
 							<div class="cComment">
-								<div class="leftFaceicon">
+								<div class="leftFaceicon" style="margin-right: -0.4375em;">
 									<img src="image/liersmall.png">
 								</div>
 								<div class="leftChatting">
-									<div class="leftSays">
-										<div class="left3kaku"></div>
-										<p class="leftfont">左ふきだし文左ふきだし文左ふきだし文左ふきだ<br>
-										し文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文</p>
+									<div class="sendername">
+										<div class="kidoku">
+											LIER
+										</div>
+									</div>
+									<div class="leftSays" style="background-color: #FFFFFF;">
+										<div class="left3kaku" style="border-right-color: #FFFFFF;"></div>
+										<p class="leftfont">左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文</p>
 									</div>
 									<div class="kidoku">
-										21:34
+										<div style="margin: 0 -3px;">
+											21:22
+										</div>
 									</div>
 								</div>
 							</div>
 							<div class="rComment">
 								<div class="rightChatting">
 									<div class="kidoku">
-										既読<br>
-										21:34
+										<div style="margin: 0 -3px;">
+											既読
+											<br>
+											23:36
+										</div>
 									</div>
-									<div class="rightSay" style="background-color: #9DE693;">
+									<div class="rightSays" style="background-color: #9DE693;">
 										<div class="right3kaku" style="border-left-color: #9DE693;"></div>
 										<p class="rightfont">右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文</p>
 									</div>
@@ -253,7 +273,7 @@
 						<div style="display: inline-block; margin: 0 0.5em;">
 							＜
 						</div>
-						<div style="display: inline-block; font-size: 85%; width: 63%; padding: 0;">
+						<div style="display: inline-block; font-size: 85%; width: 63%; padding: 0; text-align: left;">
 							<div id="mesName">
 								未設定
 							</div>
@@ -310,14 +330,14 @@
 					<select name="meslist" onchange="changeSender(this)">
 						<option value="0" hidden="">どのメッセ？</option>
 					</select>
-					<button type="button" name="delmessage" class="whitebutton" onclick="delmessage(this)">メッセ削除</button>
+					<button type="button" name="delmessage" class="whitebutton" onclick="delmessage()">メッセ削除</button>
 				</div>
 				<script type="text/javascript" src="js/datacreate/previewCreate.js"></script>
 			</div>
 		</div>
 	</div>
 	<div id="open" style="display: none;">
-		<a id="download" href="#" download="canvas.jpg">ダウンロード</a>
+		<a id="download" href="image/png" download="canvas.png">ダウンロード</a>
 		<canvas id="canVas" class="canvas" style="display: none;"></canvas>
 	</div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -325,7 +345,7 @@
 	<script type="text/javascript" src="js/datacreate/fileadd.js"></script>
 	<script type="text/javascript" src="js/datacreate/textarea.js"></script>
 	<script type="text/javascript" src="js/datacreate/mesadd.js"></script>
+	<script type="text/javascript" src="js/datacreate/imageCreate.js"></script>
 	<script src="js/all/loading.js"></script>
-	<script src="js/filecreate/download.js"></script>
 </body>
 </html>
