@@ -173,13 +173,13 @@ function addmessage(obj) {
 			txtP.style = `color: ${fontcolor}; border-color: ${mesbackcolor};`
 
 			if (fontcolor == '#FFFFFF'){
-				imgurl = 'white'
+				imgurl = 'image/callphone.png'
 			} else {
-				imgurl = 'black'
+				imgurl = 'image/callphoneB.png'
 			};
 
 			if (check3type == 2 || check3type == 3){
-				txtP.innerHTML = `<div class="telln"><div class="${imgurl}"></div></div>`;
+				txtP.innerHTML = `<div class="telln"><img src="${imgurl}"></div>`;
 
 				if (check3type == 3){
 					telltime = document.querySelector("input[name='tuwatime'").value;
