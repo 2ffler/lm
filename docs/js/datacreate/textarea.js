@@ -491,7 +491,7 @@ function ocolor(obj){
 
 function delmesm(obj){
 	change = document.querySelector("div[id='mesdel']");
-	if (obj.checked == true) {
+	if ((obj.checked == true && obj.id == 'delmm') || (obj.checked == false && obj.id == 'delmmall')) {
 		change.style = 'display: block;';
 	} else {
 		change.style = 'display: none;';
@@ -499,6 +499,7 @@ function delmesm(obj){
 }
 
 function delmessage(){
+	check = document.getElementById("delmmall").checked
 	dellist = document.querySelector("select[name='meslist']");
 
 	selecting = dellist.value
@@ -512,6 +513,15 @@ function delmessage(){
 		that.remove();
 		add.remove();
 		del.remove();
+	};
+
+	if (check){
+		addlist = document.querySelector("select[name='mespos']");
+
+		talkadd.innerHTML = '';
+		dellist.innerHTML = '<option value="0" hidden="">どのメッセ？</option>';
+		addlist.innerHTML= '<option value="0" hidden>どこに入れる？</option><option value="new">一番下（新）</option>';
+		addlist.style = 'color: #666666;'
 	};
 
 	dellist.value = 0
