@@ -263,13 +263,13 @@ div#zoom .telln {
 .white{
 	margin: 0;
 	padding: 0;
-	background-image: url('./image/callphone.png');
+	background-image: url('image/callphone.png');
 }
 
 .black{
 	margin: 0;
 	padding: 0;
-	background-image: url('./image/callphoneB.png');
+	background-image: url('image/callphoneB.png');
 }
 
 div#zoom .leftSays img{
