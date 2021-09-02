@@ -35,12 +35,19 @@ function kidoku(obj){
 
 function nameCreate(){
 	obj =  document.querySelector('input[name="talkname"]').value;
+	var sankou = document.getElementById('delb').value;
+
 
 	that = obj
 
 	if (obj.length > 14) {
 		sentence = obj.match(/.{13}/g);
 		that = sentence[0] + ' …'
+	};
+
+	if (sankou > 1) {
+		n = Number(sankou) + 1
+		that += ` (${n})`
 	};
 
 	mesName = document.getElementById('mesName');
@@ -522,25 +529,29 @@ function delmessage(){
 
 		talkadd.innerHTML = '';
 
-		for (var i in addlist.childNodes) {
-			x = addlist.childNodes.item(i)
-			if (x.value == '0' || x.value == 'new'){
-				continue;
-			};
+		addlist.innerHTML = '';
+		dellist.innerHTML = '';
 
-			if (x.nodeName == 'option') {
-				addlist.childNodes.item(i).remove();
-			};
-		};
-		for (var i in dellist.childNodes) {
-			x = dellist.childNodes.item(i)
-			if (x.value == '0'){
-				continue;
-			};
-			if (x.nodeName == 'option') {
-				dellist.childNodes.item(i).remove();
-			};
-		};
+		option = document.createElement("option");
+		option.value = "0"
+		option.hidden = "true"
+		option.innerHTML = "どこに入れる？"
+
+		addlist.appendChild(option)
+
+		option = document.createElement("option");
+		option.value = "new"
+		option.innerHTML = "一番下（新）"
+
+		addlist.appendChild(option)
+
+		option = document.createElement("option");
+		option.value = "0"
+		option.hidden = "true"
+		option.innerHTML = "どのメッセ？"
+
+		dellist.appendChild(option)
+
 		addlist.style = 'color: #666666;'
 		dellist.style = 'color: #666666;'
 
@@ -555,4 +566,7 @@ function delmessage(){
 
 	zoom = document.getElementById('zoom');
 	zoom.style = 'display: none;'
+
+	delmm = document.getElementById("delmm");
+	delmm.checked = false
 };
