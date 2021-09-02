@@ -235,7 +235,7 @@
 									</div>
 									<div class="leftSays" style="background-color: #FFFFFF;">
 										<div class="left3kaku" style="border-right-color: #FFFFFF;"></div>
-										<p class="leftfont">左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文</p>
+										<p class="leftfont" style="border-color: #ffffff;">左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文</p>
 									</div>
 									<div class="kidoku">
 										<div style="margin: 0 -3px;">
@@ -255,7 +255,7 @@
 									</div>
 									<div class="rightSays" style="background-color: #9DE693;">
 										<div class="right3kaku" style="border-left-color: #9DE693;"></div>
-										<p class="rightfont">右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文</p>
+										<p class="rightfont" style="border-color: #9DE693;">右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文</p>
 									</div>
 								</div>
 							</div>
@@ -331,16 +331,23 @@
 				<script type="text/javascript" src="js/datacreate/previewCreate.js"></script>
 			</div>
 		</div>
+		<div style="display: inline-block; margin: 0 auto;">
+			<button type="button" id="create" class="whitebutton" style="display: none;">内容確定</button>
+			<div id="result">
+				<div id="canvas">
+				</div>
+			</div>
+			<a id="download" style="display: none;" href="#" download="canvas.jpg">ダウンロード</a>
+		</div>
 	</div>
-	<a id="download" href="image/png" style='display: none;' download="canvas.png"></a>
-	<button type="button" id="create" class="whitebutton" style="display: none;">内容確定</button>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/datacreate/fileadd.js"></script>
 	<script type="text/javascript" src="js/datacreate/textarea.js"></script>
 	<script type="text/javascript" src="js/datacreate/mesadd.js"></script>
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 	<script type="text/javascript" src="js/datacreate/imageCreate.js"></script>
 	<script src="js/all/loading.js"></script>
-	<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+	<script src="js/datacreate/download.js"></script>
 </body>
 </html>
