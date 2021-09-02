@@ -5,6 +5,11 @@
 	src: url("Wingdings.ttf") format("truetype");
 };
 
+@font-face{
+	font-family: "M PLUS 1p";
+	src: url("MPLUS1p.ttf") format("truetype");
+};
+
 html{
 	font-family: "M PLUS 1p", sans-serif;
 	font-size: 16px;
