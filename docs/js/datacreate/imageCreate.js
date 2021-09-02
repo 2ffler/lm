@@ -14,5 +14,8 @@ btn.addEventListener("click",() => {
 		download.style = 'display: block;'
 
 	    zooming.appendChild(canvas)
+
+		var link = canvas.toDataURL("image/jpeg");
+		document.getElementById("download").href = link;
 	});
 })
