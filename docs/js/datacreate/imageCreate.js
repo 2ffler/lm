@@ -4,10 +4,10 @@ btn.addEventListener("click",() => {
 
 	html2canvas(document.getElementById("zoom")).then(canvas => {
 		zooming = document.getElementById("zooming")
-		canvas = document.getElementById("canvas");
+		that = document.getElementById("canvas");
 		download = document.getElementById("download");
 
-		canvas.remove()
+		that.remove()
 
 		canvas.id = 'canvas'
 		canvas.style = 'display: none;'
