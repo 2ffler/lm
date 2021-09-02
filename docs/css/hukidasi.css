@@ -122,7 +122,7 @@
 	height: 1.75em;
 	margin: 0;
 	padding: 0;
-	border-radius: 0.75em;
+	border-radius: 0.875em;
 	overflow: hidden;
 }
 
@@ -138,7 +138,7 @@
 	margin: 0;
 	padding: 0;
  	vertical-align: top;
-	border-radius: 0.75em;
+	border-radius: 0.875em;
 }
 
 .rightFaceicon img{
