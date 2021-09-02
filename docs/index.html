@@ -124,9 +124,6 @@
 						<option value="new">一番下（新）</option>
 					</select>
 					<button type="button" name="addmessage" class="whitebutton" style="display: none;" onclick="addmessage(this)">メッセ追加</button>
-					<button type="button" id="buttonThere" class="whitebutton" style="display: none;">内容確定</button>
-					<div id="result"></div>
-					<button type="button" id="create" class="whitebutton" style="display: none;">内容確定</button>				
 				</div>
 			</div>
 			<div class="left">
@@ -336,10 +333,8 @@
 			</div>
 		</div>
 	</div>
-	<div id="open" style="display: none;">
-		<a id="download" href="image/png" download="canvas.png">ダウンロード</a>
-		<canvas id="canVas" class="canvas" style="display: none;"></canvas>
-	</div>
+	<a id="download" href="image/png" style='display: none;' download="canvas.png"></a>
+	<button type="button" id="create" class="whitebutton" style="display: none;">内容確定</button>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/datacreate/fileadd.js"></script>
