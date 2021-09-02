@@ -220,7 +220,8 @@ div#zoom .chuou{
 div#zoom .kidoku{
 	display: inline-block;
 	vertical-align: bottom;
-	font-size: 16px;
+	font-size: 19px;
+	line-height: 19px;
 	margin: 0 0.3em;
 }
 
