@@ -352,7 +352,7 @@ function color(obj){
 
 	for (var xx in fL) {
 		fL[xx].style = `color: ${obj.value}; border-color: ${mesbackcolor};`;
-		if (fL[xx].children[0] == 'div'){
+		if (fL[xx].children != null){
 			fL[xx].children[0].innerHTML = `<div class="${imgurl}"></div>`
 		};
 	};
@@ -367,7 +367,7 @@ function color(obj){
 
 		for (var xxx in fR) {
 			fR[xxx].style = `color: ${obj.value}; border-color: ${mycolor};`;
-			if (fR[xx].children[0] == 'div'){
+			if (fR[xx].children != null){
 				fR[xx].children[0].innerHTML = `<div class="${imgurl}"></div>`
 			};
 		};
@@ -396,7 +396,7 @@ function icolor(obj){
 	fR = document.querySelectorAll("p[class='rightfont']");
 	for (var xxx in fR) {
 		fR[xxx].style = `color: ${mfcolor}; border-color: ${mesbackcolor};`;
-		if (fR[xx].children[0] == 'div'){
+		if (fR[xx].children != null){
 			fR[xx].children[0].innerHTML = `<div class="${imgurl}"></div>`
 		};
 	};
