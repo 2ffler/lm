@@ -22,6 +22,17 @@ let thisSEt = {
 	}
 }
 
+function kidoku(obj){
+	v = document.getElementById('delb').value
+	kid = document.querySelector('select[name="kidokuCount"]');
+
+	if(obj.checked == false || v < 2){
+		kid.style = 'display: none;'
+	} else {
+		kid.style = 'display: block;'
+	};
+};
+
 function nameCreate(){
 	obj =  document.querySelector('input[name="talkname"]').value;
 
@@ -46,6 +57,9 @@ function changeName(obj){
 	myName = document.querySelector('input[id="green"]').checked
 	kidoku = document.getElementById('kidoku')
 
+	kidokucount = document.querySelector('select[name="kidokuCount"]');
+
+	kidokucount.style = 'display: none;'
 	kidoku.disabled = false
 	kidoku.checked = true
 	senderName.disabled = false
@@ -54,9 +68,12 @@ function changeName(obj){
 	if (obj.value == 0 && myName == false){
 		senderName.checked = false
 		senderName.disabled = true
+		kidokucount.style = 'display: block;'
 	} else if (obj.value != 0) {
 		kidoku.checked = false
 		kidoku.disabled = true
+	} else {
+		kidokucount.style = 'display: block;'
 	};
 };
 
@@ -167,7 +184,6 @@ function checkGreen(obj){
 	change = document.querySelector("div[id='checkG']");
 	iconchange = document.querySelectorAll("div[class='rightFaceicon']");
 	senderName = document.getElementById('senderNameopen');
-	kidoku = document.getElementById('kidoku');
 
 	if (obj.checked == true) {
 		change.style = 'display: block;';
