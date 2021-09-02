@@ -85,7 +85,7 @@ function changeName(obj){
 
 function mespos(obj){
 	changeSender(obj);
-	change = document.querySelector("button[name='addmessage']");
+	change = document.getElementById("openThis");
 	change.style = "display: block;";
 };
 
@@ -524,11 +524,15 @@ function delmessage(){
 
 	if (check){
 		addlist = document.querySelector("select[name='mespos']");
+		addmessage = document.getElementById("openThis");
+		mesdel = document.getElementById('mesdel')
 
 		talkadd.innerHTML = '';
 		dellist.innerHTML = '<option value="0" hidden="">どのメッセ？</option>';
 		addlist.innerHTML= '<option value="0" hidden>どこに入れる？</option><option value="new">一番下（新）</option>';
 		addlist.style = 'color: #666666;'
+		addmessage.style = 'display: none;'
+		mesdel.style = 'display: none;'
 	};
 
 	dellist.value = 0
