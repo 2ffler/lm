@@ -101,12 +101,6 @@ function selectadd(obj){
 
 	var mesmenu = document.getElementById('mesmenu')
 
-	if (myName == true){
-		senderName = document.getElementById('senderNameopen')
-		senderName.disabled = false
-		senderName.checked = true
-	}
-
 	obj.innerHTML = 'メッセメンバー<br>名前アイコン追加変更'
 
 	mesmenu.style = 'display: block;'
