@@ -65,14 +65,22 @@ function changeName(obj){
 	senderName.disabled = false
 	senderName.checked = true
 
-	if (obj.value == 0 && myName == true){
-		senderName.checked = false
-		senderName.disabled = true
-		kidokucount.style = 'display: block;'
-	} else if (obj.value != 0) {
+	if (obj.value == 0){
+		
+		v = document.getElementById('delb').value
+
+		if (v > 1){
+			kidokucount.style = 'display: block;'
+		}
+
+		if (myName == false){
+			senderName.checked = false
+			senderName.disabled = true
+		};
+	} else {
 		kidoku.checked = false
 		kidoku.disabled = true
-	};
+	}
 };
 
 function mespos(obj){
