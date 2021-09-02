@@ -257,6 +257,12 @@ function teeMa(obj){
 	document.querySelector("div[id='backPreviewC']").style = 'display: none;';
 	document.querySelector("div[id='backcolor']").style = `display: block; background-color: ${backgroundcolor};`;
 
+	if (fontcolor == '#000000'){
+		imgurl = 'image/callphoneB.png'
+	} else {
+		imgurl = 'image/callphone.png'
+	};
+
 	for (var xx in mesL) {
 		mesL[xx].style = `background-color: ${mescolor};`;
 		mesL3[xx].style = `border-color: transparent; border-right-color: ${mescolor};`;
@@ -264,6 +270,9 @@ function teeMa(obj){
 
 	for (var xx in fL){
 		fL[xx].style = `color: ${fontcolor}; border-color: ${mescolor};`;
+		if (fL[xx].firstChild != null){
+			fL[xx].firstChild.innerHTML = `<img src="${imgurl}" style="width: 100%;">`
+		};
 	};
 
 	for (var xxx in mesR) {
@@ -273,6 +282,9 @@ function teeMa(obj){
 
 	for (var xxx in fR) {
 		fR[xxx].style = `color: ${myfontcolor}; border-color: ${mycolor};`;
+		if (fR[xxx].firstChild != null){
+			fR[xxx].firstChild.innerHTML = `<img src="image/callphoneB.png" style="width: 100%;">`
+		};
 	};
 
 	precccc = document.getElementById('lineContents');
@@ -342,18 +354,19 @@ function color(obj){
 
 	mfcolor = design.myfontcolor.value;
 
-	if (mfcolor == '#000000'){
-		imgurl = 'black'
+	if (obj.value == '#000000'){
+		imgurl = 'image/callphoneB.png'
 	} else {
-		imgurl = 'white'
+		imgurl = 'image/callphone.png'
 	};
 
 	mesbackcolor = design.mescolor.value;
 
 	for (var xx in fL) {
 		fL[xx].style = `color: ${obj.value}; border-color: ${mesbackcolor};`;
-		if (fL[xx].children != null){
-			fL[xx].children[0].innerHTML = `<div class="${imgurl}"></div>`
+
+		if (fL[xx].firstChild != null){
+			fL[xx].firstChild.innerHTML = `<img src="${imgurl}" style="width: 100%;">`
 		};
 	};
 
@@ -367,8 +380,8 @@ function color(obj){
 
 		for (var xxx in fR) {
 			fR[xxx].style = `color: ${obj.value}; border-color: ${mycolor};`;
-			if (fR[xx].children != null){
-				fR[xx].children[0].innerHTML = `<div class="${imgurl}"></div>`
+			if (fR[xxx].firstChild != null){
+				fR[xxx].firstChild.innerHTML = `<img src="${imgurl}" style="width: 100%;">`
 			};
 		};
 	};
@@ -384,9 +397,9 @@ function icolor(obj){
 	};
 
 	if (mfcolor == '#000000'){
-		imgurl = 'black'
+		imgurl = 'image/callphoneB.png'
 	} else {
-		imgurl = 'white'
+		imgurl = 'image/callphone.png'
 	};
 
 	if (mesbackcolor == "imescolor"){
@@ -396,8 +409,8 @@ function icolor(obj){
 	fR = document.querySelectorAll("p[class='rightfont']");
 	for (var xxx in fR) {
 		fR[xxx].style = `color: ${mfcolor}; border-color: ${mesbackcolor};`;
-		if (fR[xx].children != null){
-			fR[xx].children[0].innerHTML = `<div class="${imgurl}"></div>`
+		if (fR[xxx].firstChild != null){
+			fR[xxx].firstChild.innerHTML = `<img src="${imgurl}" style="width: 100%;">`
 		};
 	};
 };
