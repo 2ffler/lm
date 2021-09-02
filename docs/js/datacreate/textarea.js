@@ -246,13 +246,19 @@ function teeMa(obj){
 	for (var xx in mesL) {
 		mesL[xx].style = `background-color: ${mescolor};`;
 		mesL3[xx].style = `border-color: transparent; border-right-color: ${mescolor};`;
-		fL[xx].style = `color: ${fontcolor}`;
+	};
+
+	for (var xx in fL){
+		fL[xx].style = `color: ${fontcolor}; border-color: ${mescolor};`;
 	};
 
 	for (var xxx in mesR) {
 		mesR[xxx].style = `background-color: ${mycolor}`;
 		mesR3[xxx].style = `border-color: transparent; border-left-color: ${mycolor}`;
-		fR[xxx].style = `color: ${myfontcolor}`;
+	};
+
+	for (var xxx in fR) {
+		fR[xxx].style = `color: ${myfontcolor}; border-color: ${mycolor};`;
 	};
 
 	precccc = document.getElementById('lineContents');
@@ -317,30 +323,47 @@ function teeMa(obj){
 
 function color(obj){
 	fL = document.querySelectorAll("p[class='leftfont']");
+
+	var design = document.getElementById('design');
+
 	mfcolor = design.myfontcolor.value;
+
+	mesbackcolor = design.mescolor.value;
+
+	for (var xx in fL) {
+		fL[xx].style = `color: ${obj.value}; border-color: ${mesbackcolor};`;
+	};
 
 	if (mfcolor == "ifcolor"){
 		fR = document.querySelectorAll("p[class='rightfont']");
+		mycolor = design.mycolor.value;
+
+		if (mycolor == 'imescolor'){
+			mycolor = design.mescolor.value;
+		};
 
 		for (var xxx in fR) {
-			fR[xxx].style = `color: ${obj.value};`;
+			fR[xxx].style = `color: ${obj.value}; border-color: ${mycolor};`;
 		};
-	};
-	for (var xx in fL) {
-		fL[xx].style = `color: ${obj.value}`;
 	};
 };
 
 function icolor(obj){
 	var design = document.getElementById("design");
 	mfcolor = obj.value;
+	mesbackcolor = design.elements['mycolor'].value
+
 	if (mfcolor == "ifcolor"){
 		mfcolor = design.fontcolor.value;
 	};
 
+	if (mesbackcolor == "imescolor"){
+		mesbackcolor = design.elements['mescolor'].value
+	};
+
 	fR = document.querySelectorAll("p[class='rightfont']");
 	for (var xxx in fR) {
-		fR[xxx].style = `color: ${mfcolor}`;
+		fR[xxx].style = `color: ${mfcolor}; border-color: ${mesbackcolor};`;
 	};
 };
 
@@ -349,38 +372,64 @@ function mcolor(obj){
 
 	mmcolor = design.mycolor.value;
 
+	mesLF = design.fontcolor.value;
+
 	if (mmcolor == "imescolor"){
 		mesR = document.querySelectorAll("div[class='rightSays']");
 		mesR3 = document.querySelectorAll("div[class='right3kaku']");
+		mesRp = document.querySelectorAll("p[class='rightfont']");
+		mesRF = design.myfontcolor.value;
+
+		if (mesRF == "ifcolor"){
+			mesRF = mesLF
+		};
 
 		for (var xxx in mesR) {
 			mesR[xxx].style = `background-color: ${obj.value};`;
 			mesR3[xxx].style = `border-color: transparent; border-left-color: ${obj.value};`;
 		};
+		for (var xxx in mesRp) {
+			mesRp[xxx].style = `color: ${mesRF}; border-color: ${obj.value};`
+		};
 	};
 
 	mesL = document.querySelectorAll("div[class='leftSays']");
 	mesL3 = document.querySelectorAll("div[class='left3kaku']");
+	mesLp = document.querySelectorAll("p[class='leftfont']");
 
 	for (var xx in mesL) {
 		mesL[xx].style = `background-color: ${obj.value};`;
 		mesL3[xx].style = `border-color: transparent; border-right-color: ${obj.value};`;
 	};
+	for (var xx in mesLp){
+		mesLp[xx].style = `color: ${mesLF}; border-color: ${obj.value};`
+	}
 };
 
 function ocolor(obj){
 	var design = document.getElementById("design");
 	mmcolor = obj.value;
 
+	mFcolor = design.myfontcolor.value
+
 	if (mmcolor == "imescolor"){
 		mmcolor = design.mescolor.value;
 	};
 
+	if (mFcolor == "ifcolor"){
+		mFcolor = design.fontcolor.value;
+	};
+
 	mesR = document.querySelectorAll("div[class='rightSays']");
 	mesR3 = document.querySelectorAll("div[class='right3kaku']");
+	mesRp = document.querySelectorAll("p[class='rightfont']");
+
 	for (var xxx in mesR) {
 		mesR[xxx].style = `background-color: ${mmcolor};`;
 		mesR3[xxx].style = `border-color: transparent; border-left-color: ${mmcolor};`;
+	};
+	for (var xxx in mesRp) {
+		mesRp[xxx].style = `color: ${mFcolor}; border-color: ${mmcolor};`
 	};
 };
 
