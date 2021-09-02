@@ -1,0 +1,273 @@
+/*大枠*/
+
+#zoom{
+	text-align: center;
+	position: relative;
+	width: 22.5em;
+	min-height: 40em;
+	font-size: 200%;
+	overflow: hidden;
+}
+
+/*背景色画像*/
+#bpc{
+	margin: 0;
+}
+#bc{
+	margin: 0;
+	width: 22.5em;
+}
+
+div#zoom .backPreview{
+	width: 22.5em;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+/*上部ツールアイコン等*/
+#lc{
+	position: absolute;
+	height: 2.5em;
+	width: 22.5em;
+	border: none;
+	top: 0;
+	left: 0;
+	z-index: 4;
+}
+div#zoom .lineIcon{
+	display: inline-block;
+	width: 1.25em;
+	height: 1.25em;
+	margin: 0.625em 0.125em;
+	vertical-align: middle;
+}
+#mne{
+	display: inline-block;
+	font-size: 90%;
+	max-width: 15em;
+	overflow: hidden;
+	vertical-align: middle;
+}
+#mbn{
+	font-size: 85%;
+	display: inline-block;
+	vertical-align: middle;
+}
+div#zoom .contentsWhite, .contentsBlack, .contentsGray{
+	display: inline;
+}
+
+/*下部ツール等*/
+
+#mssc{
+	position: absolute;
+	width: 22.5em;
+	bottom: 0;
+/*	margin: 37.5em 0 0;*/
+	padding: 0;
+	z-index: 4;
+	height: auto;
+	border: none;
+}
+
+#nsm{
+	border-radius: 0.875em;
+	padding: 0.25em;
+	display: inline-block;
+	vertical-align: middle;
+	width: 13.75em;
+	height: 1.375em;
+}
+
+/*ラインメッセ部分*/
+#tcn{
+	position: absolute;
+	z-index: 2;
+	top: 3em;
+	left: 0;
+	width: 22.5em;
+	padding: 0;
+}
+
+div#zoom .cComment {
+	margin: 1% 2%;
+	overflow: hidden;
+ 	line-height: 1em;
+  	text-align: left;
+}
+
+div#zoom .rComment {
+	margin: 1% 2%;
+	overflow: hidden;
+ 	line-height: 1em;
+ 	text-align: right;
+}
+
+div#zoom .sendername{
+	margin: -0.1em 0.5em -0.2em;
+	opacity: 0.5;
+}
+
+div#zoom .leftFaceicon {
+	display: inline-block;
+	width: 1.75em;
+	height: 1.75em;
+	margin: 0;
+	padding: 0;
+	border-radius: 0.75em;
+	overflow: hidden;
+}
+
+div#zoom .leftFaceicon img{
+	width: 100%;
+	margin: 0;
+}
+
+div#zoom .rightFaceicon{
+	display: inline-block;
+	width: 1.75em;
+	height: 1.75em;
+	margin: 0;
+	padding: 0;
+ 	vertical-align: top;
+	border-radius: 0.75em;
+}
+
+div#zoom .rightFaceicon img{
+	width: 100%;
+	margin: 0;
+}
+
+
+
+div#zoom .leftChatting {
+ 	display: inline-block;
+ 	text-align: left;
+ 	vertical-align: top;
+}
+
+div#zoom .rightChatting{
+ 	display: inline-block;
+ 	vertical-align: top;
+}
+
+
+
+div#zoom .leftSays {
+	display: inline-block;
+	position: relative; 
+	margin: 0.25em 0 0 0.4375em;
+	border-radius: 0.5em;
+	max-width: 15.9em;
+}
+
+div#zoom .left3kaku {
+	display: inline-block;
+	position: absolute;
+	top: -0.05em;
+	left: -0.35em;
+	border-width: 0.165em;
+	border-style: solid;
+	border-color: transparent;
+	border-right-width: 0.495em;
+	border-right-color: #ffffff;
+	-webkit-transform: rotate(40deg);
+	transform: rotate(40deg);
+	z-index: 3;
+}
+
+div#zoom .rightSays {
+	display: inline-block;
+	position: relative; 
+	margin: 0.25em 0.4375em 0 0;
+	border-radius: 0.5em;
+	max-width: 15.9em;
+}
+
+div#zoom .right3kaku {
+	display: inline-block;
+	position: absolute;
+	top: -0.05em;
+	right: -0.35em;
+	border-width: 0.165em;
+	border-style: solid;
+	border-color: transparent;
+	border-left-width: 0.495em;
+	border-left-color: #ffffff;
+	-webkit-transform: rotate(-40deg);
+	transform: rotate(-40deg);
+ 	z-index: 3;
+}
+
+div#zoom .chuoublock{
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+div#zoom .chuou{
+	line-height: 1em;
+	display: inline-block;
+	font-size: 20px;
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 2em;
+	margin: 0.5ex auto;
+	padding: 1ex 2em;
+}
+
+
+div#zoom .kidoku{
+	display: inline-block;
+	vertical-align: bottom;
+	font-size: 20px;
+	margin: 0 0.3em;
+}
+
+
+div#zoom p {
+	font-size: 23px;
+	text-align: left;
+	margin: 0;
+	padding: 0;
+	border: solid 0.5em;
+	border-radius: 0.5em;
+	line-height: 1.5em;
+}
+
+/*テキスト内*/
+div#zoom .tell {
+	font-size: 4em;
+	position: absolute;
+	top: -0.6em;
+	left: -0.5em;
+	height: 1.5em;
+	width: 1em;
+	display: inline-block;
+	font-family: "Wingdings";
+	-webkit-transform: rotate(120deg);
+	transform: rotate(120deg);
+}
+
+div#zoom .telln {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 4em;
+	height: 4em;
+	overflow: hidden;
+	text-align: right;
+	vertical-align: top;
+}
+
+div#zoom .leftSays img{
+	width: 100%;
+	margin-right: -0.5em;
+	border-radius: 1em;
+}
+
+div#zoom .rightSays img{
+	width: 100%;
+	margin-left: -0.5em;
+	border-radius: 1em;
+}
