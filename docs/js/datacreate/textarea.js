@@ -533,4 +533,10 @@ function delmessage(){
 
 	dellist.value = 0
 	dellist.style = 'color: #666666;'
-}
+
+	createImage = document.getElementById('createImage')
+	createImage.style = 'display: none;'
+
+	zoom = document.getElementById('zoom');
+	zoom.style = 'display: none;'
+};
