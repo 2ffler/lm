@@ -87,6 +87,8 @@ function deleteBtn(target) {
   	target.value = i;
 
   	if (i == 1){
+  		var kidoku = document.querySelector('select[name="kidokuCount"]');
+  		kidoku.style = "display: none;";
   		tgt_id.style = "display: none;";
   	};
 };
