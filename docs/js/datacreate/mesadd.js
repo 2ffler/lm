@@ -296,6 +296,9 @@ function addmessage(obj) {
 
 	button = document.getElementById('create');
 	button.style = 'display: inline-block;'
+
+	createImage = document.getElementById('createImage')
+	createImage.style = 'display: none;'
 };
 
 function createThis() {
@@ -341,7 +344,6 @@ function createThis() {
 	parent = document.getElementById('zooming')
 	parent.appendChild(zoom)
 
-	result = document.getElementById('result')
-
-	result.style = 'display: inline-block;'
+	createImage = document.getElementById('createImage')
+	createImage.style = 'display: inline-block;'
 };
