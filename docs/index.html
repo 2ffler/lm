@@ -7,6 +7,7 @@
 	<meta name="author" content="2ffler">
 	<link rel="stylesheet" href="css/all.css">
 	<link rel="stylesheet" href="css/hukidasi.css">
+	<link rel="stylesheet" href="css/zoom.css">
 </head>
 <body>
 	<div id="loader-bg">
@@ -89,7 +90,7 @@
 							<label for="timehyouji">時間表示する</label>
 							<input type="time" name="time" value="21:15">
 							<br>
-							<input type="checkbox" name="kidoku" id="kidoku" style="margin-left: 0.5em;" checked>
+							<input type="checkbox" name="kidoku" id="kidoku" onclick="kidoku(this)" style="margin-left: 0.5em;" checked>
 							<label for="kidoku">既読表示する</label>
 							<br>
 							<input type="checkbox" name="senderNameopen" id="senderNameopen" style="margin-left: 0.5em;" disabled>
@@ -204,7 +205,7 @@
 						<input type="file" name="display_back" accept="image/*">
 						<div id="backPreview" style="display: block;">
 							※推奨画像比率・縦長９：16<br>
-							※短辺を基準に自動サイズ変更<br>
+							※縦辺を基準に自動サイズ変更<br>
 							※中央寄せ、余分は自動トリミング<br>
 							※トーク画面が長くなると繰り返し
 						</div>
@@ -269,7 +270,7 @@
 						<div style="display: inline-block; margin: 0 0.5em;">
 							＜
 						</div>
-						<div style="display: inline-block; font-size: 85%; width: 63%; padding: 0; text-align: left;">
+						<div style="display: inline-block; font-size: 0.85em; width: 63%; padding: 0; text-align: left;">
 							<div id="mesName">
 								未設定
 							</div>
@@ -332,11 +333,12 @@
 			</div>
 		</div>
 		<div style="display: inline-block; margin: 0 auto;">
-			<button type="button" id="create" class="whitebutton" style="display: none;">内容確定</button>
-			<div id="result">
-				<div id="canvas">
-				</div>
+			<button type="button" id="create" class="whitebutton" style="display: none;" onclick="createThis()">内容確定</button>
+			<div id="zooming">
+				<div id="zoom" style="display: none;"></div>
+				<div id="canvas" style="display: none;"></div>
 			</div>
+			<button type="button" id="result" class="whitebutton" style="display: none;">これでよし？</button>
 			<a id="download" style="display: none;" href="#" download="canvas.jpg">ダウンロード</a>
 		</div>
 	</div>
