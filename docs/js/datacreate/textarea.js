@@ -491,8 +491,15 @@ function ocolor(obj){
 
 function delmesm(obj){
 	change = document.querySelector("div[id='mesdel']");
-	if ((obj.checked == true && obj.id == 'delmm') || (obj.checked == false && obj.id == 'delmmall')) {
+	mesCount = document.querySelector("select[name='meslist']");
+
+	if (obj.checked == true && obj.id == 'delmm') {
 		change.style = 'display: block;';
+	} else if (obj.checked == false && obj.id == 'delmmall') {
+		change.style = 'display: block;';
+		mesCount.style = 'display: inline-block;'
+	} else if (obj.id == 'delmmall') {
+		mesCount.style = 'display: none;'
 	} else {
 		change.style = 'display: none;';
 	};
