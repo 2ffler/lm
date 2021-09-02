@@ -24,7 +24,7 @@ function addmessage(obj) {
 	behind = document.getElementById('preView');
 	design = document.getElementById('design');
 
-	backgroundcolor = design.elements['backgroundcolor'].value
+	backgroundcolor = design.backgroundcolor.value
 	kidokuColor = '#000000'
 
 	if (backgroundcolor == '#1A1A1A') {
@@ -228,6 +228,7 @@ function addmessage(obj) {
 
 		kidokuTime = document.createElement('div')
 		kidokuTime.className = 'kidoku'
+		kidokuTime.style = `color: ${kidokuColor};`
 		kidokuTime.innerHTML = check51
 
 		if (which == 'right'){
