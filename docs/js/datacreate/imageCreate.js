@@ -1,16 +1,18 @@
-var btn = document.getElementById("create");
+var btn = document.getElementById("result");
 
 btn.addEventListener("click",() => {
-	html2canvas(document.getElementById("previeW")).then(canvas => {
-		result = document.getElementById("result");
-		itis = document.getElementById("canvas");
+
+	html2canvas(document.getElementById("zoom")).then(canvas => {
+		zooming = document.getElementById("zooming")
+		canvas = document.getElementById("canvas");
 		download = document.getElementById("download");
 
-		itis.remove()
+		canvas.remove()
 
 		canvas.id = 'canvas'
+		canvas.style = 'display: none;'
 		download.style = 'display: block;'
 
-	    result.appendChild(canvas)
+	    zooming.appendChild(canvas)
 	});
 })
