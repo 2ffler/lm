@@ -85,7 +85,7 @@ function changeName(obj){
 
 function mespos(obj){
 	changeSender(obj);
-	change = document.querySelector("div[id='openThis']");
+	change = document.getElementById("openThis")
 	change.style = "display: block;";
 };
 
