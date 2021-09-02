@@ -1,6 +1,7 @@
 /*大枠*/
 
 #previeW{
+	text-align: center;
 	position: relative;
 	width: 22.5em;
 	height: 40em;
@@ -49,7 +50,7 @@
 #mesName{
 	display: inline-block;
 	font-size: 90%;
-	max-width: 14em;
+	max-width: 15em;
 	overflow: hidden;
 	vertical-align: middle;
 }
@@ -90,7 +91,7 @@
 	top: 3em;
 	left: 0;
 	width: 22.5em;
-	min-height: 33.75em;
+	height: 34.5em;
 	padding: 0;
 	overflow: scroll;
 }
@@ -99,6 +100,7 @@
 	margin: 1% 2%;
 	overflow: hidden;
  	line-height: 1em;
+  	text-align: left;
 }
 
 .rComment {
@@ -108,35 +110,38 @@
  	text-align: right;
 }
 
-
-.cComment .leftFaceicon {
-	display: inline-block;
-	width: 7.8%;
-	line-height: 1em;
-	margin-right: -0.4375em;
+.sendername{
+	margin: -0.1em 0.5em -0.2em;
+	opacity: 0.5;
 }
 
-.cComment .leftFaceicon img{
+.leftFaceicon {
+	display: inline-block;
+	width: 1.75em;
+	height: 1.75em;
+	margin: 0;
+	padding: 0;
+	border-radius: 0.75em;
+	overflow: hidden;
+}
+
+.leftFaceicon img{
 	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-	object-fit: cover;
 	margin: 0;
 }
 
 .rightFaceicon{
 	display: inline-block;
-	width: 7.8%;
-	line-height: 1em;
-	margin-left: -0.4375em;
+	width: 1.75em;
+	height: 1.75em;
+	margin: 0;
+	padding: 0;
  	vertical-align: top;
+	border-radius: 0.75em;
 }
 
 .rightFaceicon img{
 	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-	object-fit: cover;
 	margin: 0;
 }
 
@@ -150,6 +155,7 @@
 
 .rightChatting{
  	display: inline-block;
+ 	vertical-align: top;
 }
 
 
@@ -161,7 +167,6 @@
 	padding: 0.3em 0.5em;
 	border-radius: 0.5em;
 	max-width: 15.9em;
-	background-color: #ffffff;
 }
 
 .left3kaku {
@@ -179,15 +184,15 @@
 	z-index: 3;
 }
 
-.rightSay {
+.rightSays {
 	display: inline-block;
 	position: relative; 
 	margin: 0.25em 0.4375em 0 0;
 	padding: 0.3em 0.5em;
 	border-radius: 0.5em;
 	max-width: 15.9em;
-	background-color: #ffffff;
 }
+
 .right3kaku {
 	display: inline-block;
 	position: absolute;
@@ -203,19 +208,28 @@
  	z-index: 3;
 }
 
+.chuoublock{
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
 .chuou{
-	font-size: 8px;
-	color: #ffffff;
-	background-color: rgba(0, 0, 0, 0.7);
-	border-radius: 0.5em;
-	margin: auto;
+	line-height: 1em;
+	display: inline-block;
+	font-size: 10px;
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 2em;
+	margin: 0.5ex auto;
+	padding: 1ex 2em;
 }
 
 
 .kidoku{
 	display: inline-block;
-	vertical-align: text-bottom;
-	font-size: 8px;
+	vertical-align: bottom;
+	font-size: 10px;
+	margin: 0 3px;
 }
 
 
@@ -229,16 +243,37 @@ p {
 
 /*テキスト内*/
 .tell {
+	font-size: 4em;
+	position: absolute;
+	top: -0.6em;
+	left: -0.5em;
+	height: 1.5em;
+	width: 1em;
 	display: inline-block;
 	font-family: "Wingdings";
-	font-size: 100px;
 	-webkit-transform: rotate(120deg);
 	transform: rotate(120deg);
 }
 
 .telln {
-	font-family: "Wingdings";
-	font-size: 30px;
-	-webkit-transform: rotate(270deg);
-	transform: rotate(270deg);
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 4em;
+	height: 4em;
+	overflow: hidden;
+	text-align: right;
+	vertical-align: top;
+}
+
+.leftSays img{
+	width: 100%;
+	margin-left: -0.5em;
+	border-radius: 1em;
+}
+
+.rightSays img{
+	width: 100%;
+	margin-right: -0.5em;
+	border-radius: 1em;
 }
