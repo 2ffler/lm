@@ -83,12 +83,6 @@ function changeName(obj){
 	}
 };
 
-function mespos(obj){
-	changeSender(obj);
-	that = document.getElementById("that")
-	that.style = "display: block;";
-};
-
 function changeItem(obj){
 	changeSender(obj);
 	change = document.querySelector("textarea[name='message']");
@@ -524,14 +518,12 @@ function delmessage(){
 
 	if (check){
 		addlist = document.querySelector("select[name='mespos']");
-		addmessage = document.getElementById("openThis");
 		mesdel = document.getElementById('mesdel')
 
 		talkadd.innerHTML = '';
 		dellist.innerHTML = '<option value="0" hidden="">どのメッセ？</option>';
 		addlist.innerHTML= '<option value="0" hidden>どこに入れる？</option><option value="new">一番下（新）</option>';
 		addlist.style = 'color: #666666;'
-		addmessage.style = 'display: none;'
 		mesdel.style = 'display: none;'
 	};
 
