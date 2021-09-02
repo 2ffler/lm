@@ -128,6 +128,8 @@ function selectadd(obj){
 
 	kidoku.appendChild(option);
 
+	mesTitle = ''
+
 	while (iii < sankou){
 		iii += 1;
 	  	var sName = document.getElementById('sender_' + iii).value;
@@ -138,6 +140,12 @@ function selectadd(obj){
 	  		option.innerHTML = "黄緑の方※名前アイコン設定ナシ";	  		
 	  	} else {
 	  		option.innerHTML = sName;
+
+	  		mesTitle += ', ' + sName;
+
+	  		if (mesTitle == ', ' + sName) {
+	  			mesTitle = ' ';
+	  		};
 	  	};
 
 	  	parent.appendChild(option);
@@ -160,6 +168,25 @@ function selectadd(obj){
 
 		kidoku.appendChild(option);
 	};
+
+	var talkname = document.querySelector('input[name="talkname"]');
+	var title = document.getElementById("mesName");
+
+	if (talkname.value != '') {
+		mesTitle = talkname.value
+	};
+
+	if (mesTitle.length > 14) {
+		sentence = mesTitle.match(/.{13}/g);
+		mesTitle = sentence[0] + ' …'
+	};
+
+	if (sankou > 1) {
+		n = Number(sankou) + 1
+		mesTitle += ` (${n})`
+	};
+
+	title.innerHTML = mesTitle
 };
 
 function iconPP(obj){
