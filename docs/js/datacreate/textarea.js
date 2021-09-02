@@ -344,10 +344,19 @@ function color(obj){
 
 	mfcolor = design.myfontcolor.value;
 
+	if (mfcolor == '#000000'){
+		imgurl = 'black'
+	} else {
+		imgurl = 'white'
+	};
+
 	mesbackcolor = design.mescolor.value;
 
 	for (var xx in fL) {
 		fL[xx].style = `color: ${obj.value}; border-color: ${mesbackcolor};`;
+		if (fL[xx].children[0] == 'div'){
+			fL[xx].children[0].innerHTML = `<div class="${imgurl}"></div>`
+		};
 	};
 
 	if (mfcolor == "ifcolor"){
@@ -360,6 +369,9 @@ function color(obj){
 
 		for (var xxx in fR) {
 			fR[xxx].style = `color: ${obj.value}; border-color: ${mycolor};`;
+			if (fR[xx].children[0] == 'div'){
+				fR[xx].children[0].innerHTML = `<div class="${imgurl}"></div>`
+			};
 		};
 	};
 };
@@ -373,6 +385,12 @@ function icolor(obj){
 		mfcolor = design.fontcolor.value;
 	};
 
+	if (mfcolor == '#000000'){
+		imgurl = 'black'
+	} else {
+		imgurl = 'white'
+	};
+
 	if (mesbackcolor == "imescolor"){
 		mesbackcolor = design.elements['mescolor'].value
 	};
@@ -380,6 +398,9 @@ function icolor(obj){
 	fR = document.querySelectorAll("p[class='rightfont']");
 	for (var xxx in fR) {
 		fR[xxx].style = `color: ${mfcolor}; border-color: ${mesbackcolor};`;
+		if (fR[xx].children[0] == 'div'){
+			fR[xx].children[0].innerHTML = `<div class="${imgurl}"></div>`
+		};
 	};
 };
 
