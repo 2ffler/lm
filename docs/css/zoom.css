@@ -132,6 +132,7 @@ div#zoom .rightFaceicon{
 	padding: 0;
  	vertical-align: top;
 	border-radius: 0.875em;
+	overflow: hidden;
 }
 
 div#zoom .rightFaceicon img{
