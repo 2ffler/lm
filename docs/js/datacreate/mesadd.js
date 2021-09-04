@@ -17,7 +17,9 @@ function imageCreateThis(image, nameing) {
 	// ファイル読み取りに成功したとき
 	reader.onload = function() {
 		image.innerHTML = `<img src="${reader.result}">`
-		return image
+		if (nameing.indexOf('icon_') != -1){
+			image.className = `<img src="${reader.result}" class="iconPreview">`;
+		};
 	};
 };
 
@@ -138,8 +140,7 @@ function addmessage(obj) {
 
 		if (which == 'left') {
 			talk.appendChild(icon)
-			img = imageCreateThis(icon, `input[id='icon_${check2sender}']`)
-			img.className = 'iconPreview'
+			imageCreateThis(icon, `input[id='icon_${check2sender}']`)
 		};
 
 		textmessage.className = `${which}Chatting`
