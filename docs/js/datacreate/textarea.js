@@ -114,9 +114,29 @@ function changeItem(obj){
 	};
 };
 
-function bImageclick(obj){
+function bImage(obj){
+
 	change = document.querySelector("div[id='backimage']");
 	preccc = document.querySelector("div[id='backPreviewC']");
+	precc = document.querySelector("div[id='backcolor']");
+
+	if (obj.checked == true){
+		change.style = 'display: block;'
+		preccc.style = 'display: block;'
+
+		precc.style.display = 'none'
+	} else {
+		change.style = 'display: none;'
+		preccc.style = 'display: none;'
+		precc.style.display = 'block'
+	};
+};
+
+function bImageclick(obj){
+	bgColor(obj.value)
+};
+
+function bgColor(obj){
 	precc = document.querySelector("div[id='backcolor']");
 	precccc = document.getElementById('lineContents');
 	preccccc = document.getElementById('messageSendC');
@@ -128,20 +148,16 @@ function bImageclick(obj){
 	contents = document.querySelectorAll("div[class='chuou']");
 	kidoku = document.querySelectorAll("div[class='kidoku']");
 
-	if (obj.value == "bimage"){
-		change.style = 'display: block;';
-		preccc.style = 'display: block;';
-		precc.style = 'display: none;';
-	} else {
-		change.style = 'display: none;';
-		preccc.style = 'display: none;';
-		precc.style = `display: block; background-color: ${obj.value};`;
-	};
+	precc.style.backgroundColor = obj;
 
-	if (obj.value == "#A0B5D9"){
-		precccc.style = 'background-color: transparent; color: #000000;';
-		preccccc.style = 'background-color: #FFFFFF; color: #000000;';
-		notsend.style = 'background-color: #EDEFF3;';
+	if (obj == "#A0B5D9"){
+		precccc.style.backgroundColor = 'transparent';
+		precccc.style.color = '#000000';
+		preccccc.style.backgroundColor = '#FFFFFF';
+		preccccc.style.color = '#000000';
+
+		notsend.style.backgroundColor = '#EDEFF3';
+
 		for(var iiiii in preccB){
 			preccB[iiiii].style = 'display: inline;';
 			preccG[iiiii].style = 'display: none;';
@@ -153,10 +169,14 @@ function bImageclick(obj){
 		for(var iiiii in kidoku){
 			kidoku[iiiii].style = 'color: #000000;';
 		}
-	} else if (obj.value == "#1A1A1A"){
-		precccc.style = 'background-color: transparent; color: #ffffff;';
-		preccccc.style = 'background-color: #111111; color: #ffffff;';
-		notsend.style = 'background-color: #1F1F1F;';
+	} else if (obj == "#1A1A1A"){
+		precccc.style.backgroundColor = 'transparent';
+		precccc.style.color = '#FFFFFF';
+		preccccc.style.backgroundColor = '#111111';
+		preccccc.style.color = '#ffffff';
+
+		notsend.style.backgroundColor = '#1F1F1F';
+
 		for(var iiiii in preccB){
 			preccB[iiiii].style = 'display: none;';
 			preccG[iiiii].style = 'display: none;';
@@ -169,9 +189,12 @@ function bImageclick(obj){
 			kidoku[iiiii].style = 'color: #FFFFFF;';
 		}
 	} else {
-		precccc.style = 'background-color: #F8F8F8; color: #000000;';
-		preccccc.style = 'background-color: #FFFFFF; color: #1A1A1A;';
-		notsend.style = 'background-color: #F7F7F7;';
+		precccc.style.backgroundColor = '#F8F8F8';
+		precccc.style.color = '#000000'
+		preccccc.style.backgroundColor = '#FFFFFF';
+		preccccc.style.color = '#1A1A1A';
+
+		notsend.style.backgroundColor = '#F7F7F7';
 
 		for(var iiiii in preccB){
 			preccB[iiiii].style = 'display: none;';
@@ -230,13 +253,59 @@ function changeData(obj){
 	};
 };
 
-function teeMa(obj){
-	mesL = document.querySelectorAll("div[class='leftSays']");
-	mesL3 = document.querySelectorAll("div[class='left3kaku']");
-	fL = document.querySelectorAll("p[class='leftfont']");
+function fontColorThis(font, color){
 
-	mesR = document.querySelectorAll("div[class='rightSays']");
-	mesR3 = document.querySelectorAll("div[class='right3kaku']");
+	if (color == '#000000'){
+		imgurl = 'image/callphoneB.png'
+	} else {
+		imgurl = 'image/callphone.png'
+	};
+
+	for (var xxx in font) {
+
+		if (font[xxx].tagName == 'P'){
+			font[xxx].style.color = color;
+		};
+
+		if (font[xxx].firstChild != null){
+			font[xxx].firstChild.innerHTML = `<img src="${imgurl}" style="width: 100%;">`
+		};
+	};
+};
+
+function mesBack(color, which){
+	if (which == 'left'){
+		m = document.querySelectorAll("div[class='rightSays']");
+		m3 = document.querySelectorAll("div[class='right3kaku']");
+		p = document.querySelectorAll("p[class='rightfont']");
+	} else {
+		m = document.querySelectorAll("div[class='leftSays']");
+		m3 = document.querySelectorAll("div[class='left3kaku']");
+		p = document.querySelectorAll("p[class='leftfont']");
+	};
+
+	for (var xxx in m) {
+		if (m[xxx].tagName == 'DIV'){
+			m[xxx].style.backgroundColor = color;
+		};
+
+		if (m3[xxx].tagName == 'DIV'){
+			if (which == 'left'){
+				m3[xxx].style.borderLeftColor = color;
+			} else {
+				m3[xxx].style.borderRightColor = color;
+			};
+		};
+	};
+	for (var xxx in p) {
+		if (p[xxx].tagName == 'P'){
+			p[xxx].style.borderColor = color;
+		};
+	};
+};
+
+function teeMa(obj){
+	fL = document.querySelectorAll("p[class='leftfont']");
 	fR = document.querySelectorAll("p[class='rightfont']");
 
 	var it = thisSEt['defultT']
@@ -262,98 +331,17 @@ function teeMa(obj){
 	mycolor = design.mycolor.value;
 	backgroundcolor = design.backgroundcolor.value;
 
-	document.querySelector("div[id='backimage']").style = 'display: none;';
-	document.querySelector("div[id='backPreviewC']").style = 'display: none;';
-	document.querySelector("div[id='backcolor']").style = `display: block; background-color: ${backgroundcolor};`;
+	document.querySelector("div[id='backimage']").style.display = 'none';
+	document.querySelector("div[id='backPreviewC']").style.display = 'none';
+	document.querySelector("div[id='backcolor']").style.display = 'block';
 
-	if (fontcolor == '#000000'){
-		imgurl = 'image/callphoneB.png'
-	} else {
-		imgurl = 'image/callphone.png'
-	};
+	fontColorThis(fL, fontcolor)
+	fontColorThis(fR, myfontcolor)
 
-	for (var xx in mesL) {
-		mesL[xx].style = `background-color: ${mescolor};`;
-		mesL3[xx].style = `border-color: transparent; border-right-color: ${mescolor};`;
-	};
+	mesBack(mescolor, 'right')
+	mesBack(mycolor, 'left')
 
-	for (var xx in fL){
-		fL[xx].style = `color: ${fontcolor}; border-color: ${mescolor};`;
-		if (fL[xx].firstChild != null){
-			fL[xx].firstChild.innerHTML = `<img src="${imgurl}" style="width: 100%;">`
-		};
-	};
-
-	for (var xxx in mesR) {
-		mesR[xxx].style = `background-color: ${mycolor}`;
-		mesR3[xxx].style = `border-color: transparent; border-left-color: ${mycolor}`;
-	};
-
-	for (var xxx in fR) {
-		fR[xxx].style = `color: ${myfontcolor}; border-color: ${mycolor};`;
-		if (fR[xxx].firstChild != null){
-			fR[xxx].firstChild.innerHTML = `<img src="image/callphoneB.png" style="width: 100%;">`
-		};
-	};
-
-	precccc = document.getElementById('lineContents');
-	preccccc = document.getElementById('messageSendC');
-	preccB = document.querySelectorAll("div[class='contentsBlack']");
-	preccG = document.querySelectorAll("div[class='contentsGray']");
-	preccW = document.querySelectorAll("div[class='contentsWhite']");
-	notsend = document.getElementById('notsendmessage');
-
-	contents = document.querySelectorAll("div[class='chuou']");
-	kidoku = document.querySelectorAll("div[class='kidoku']");
-
-
-	if (backgroundcolor == "#A0B5D9"){
-		precccc.style = 'background-color: transparent; color: #000000;';
-		preccccc.style = 'background-color: #FFFFFF; color: #000000;';
-		notsend.style = 'background-color: #EDEFF3;';
-		for(var iiiii in preccB){
-			preccB[iiiii].style = 'display: inline;';
-			preccG[iiiii].style = 'display: none;';
-			preccW[iiiii].style = 'display: none;';
-		};
-		for(var iiiii in contents){
-			contents[iiiii].style = 'color: #000000;';
-		}
-		for(var iiiii in kidoku){
-			kidoku[iiiii].style = 'color: #000000;';
-		}
-	} else if (backgroundcolor == "#1A1A1A"){
-		precccc.style = 'background-color: transparent; color: #ffffff;';
-		preccccc.style = 'background-color: #111111; color: #ffffff;';
-		notsend.style = 'background-color: #1F1F1F;';
-		for(var iiiii in preccB){
-			preccB[iiiii].style = 'display: none;';
-			preccG[iiiii].style = 'display: none;';
-			preccW[iiiii].style = 'display: inline;';
-		};
-		for(var iiiii in contents){
-			contents[iiiii].style = 'color: #FFFFFF;';
-		}
-		for(var iiiii in kidoku){
-			kidoku[iiiii].style = 'color: #FFFFFF;';
-		}
-
-	} else {
-		precccc.style = 'background-color: #F8F8F8; color: #000000;';
-		preccccc.style = 'background-color: #FFFFFF; color: #1A1A1A;';
-		notsend.style = 'background-color: #F7F7F7;';
-		for(var iiiii in preccB){
-			preccB[iiiii].style = 'display: none;';
-			preccG[iiiii].style = 'display: inline;';
-			preccW[iiiii].style = 'display: none;';
-		};
-		for(var iiiii in contents){
-			contents[iiiii].style = 'color: #000000;';
-		}
-		for(var iiiii in kidoku){
-			kidoku[iiiii].style = 'color: #000000;';
-		}
-	};
+	bgColor(backgroundcolor)
 };
 
 function color(obj){
@@ -363,65 +351,28 @@ function color(obj){
 
 	mfcolor = design.myfontcolor.value;
 
-	if (obj.value == '#000000'){
-		imgurl = 'image/callphoneB.png'
-	} else {
-		imgurl = 'image/callphone.png'
-	};
-
-	mesbackcolor = design.mescolor.value;
-
-	for (var xx in fL) {
-		fL[xx].style = `color: ${obj.value}; border-color: ${mesbackcolor};`;
-
-		if (fL[xx].firstChild != null){
-			fL[xx].firstChild.innerHTML = `<img src="${imgurl}" style="width: 100%;">`
-		};
-	};
+	fontColorThis(fL, obj.value)
 
 	if (mfcolor == "ifcolor"){
 		fR = document.querySelectorAll("p[class='rightfont']");
 		mycolor = design.mycolor.value;
 
-		if (mycolor == 'imescolor'){
-			mycolor = design.mescolor.value;
-		};
-
-		for (var xxx in fR) {
-			fR[xxx].style = `color: ${obj.value}; border-color: ${mycolor};`;
-			if (fR[xxx].firstChild != null){
-				fR[xxx].firstChild.innerHTML = `<img src="${imgurl}" style="width: 100%;">`
-			};
-		};
+		fontColorThis(fR, obj.value)
 	};
 };
 
 function icolor(obj){
 	var design = document.getElementById("design");
 	mfcolor = obj.value;
-	mesbackcolor = design.elements['mycolor'].value
+	mesbackcolor = design.mycolor.value
 
 	if (mfcolor == "ifcolor"){
 		mfcolor = design.fontcolor.value;
 	};
 
-	if (mfcolor == '#000000'){
-		imgurl = 'image/callphoneB.png'
-	} else {
-		imgurl = 'image/callphone.png'
-	};
-
-	if (mesbackcolor == "imescolor"){
-		mesbackcolor = design.elements['mescolor'].value
-	};
-
 	fR = document.querySelectorAll("p[class='rightfont']");
-	for (var xxx in fR) {
-		fR[xxx].style = `color: ${mfcolor}; border-color: ${mesbackcolor};`;
-		if (fR[xxx].firstChild != null){
-			fR[xxx].firstChild.innerHTML = `<img src="${imgurl}" style="width: 100%;">`
-		};
-	};
+
+	fontColorThis(fR, mfcolor)
 };
 
 function mcolor(obj){
@@ -432,62 +383,21 @@ function mcolor(obj){
 	mesLF = design.fontcolor.value;
 
 	if (mmcolor == "imescolor"){
-		mesR = document.querySelectorAll("div[class='rightSays']");
-		mesR3 = document.querySelectorAll("div[class='right3kaku']");
-		mesRp = document.querySelectorAll("p[class='rightfont']");
-		mesRF = design.myfontcolor.value;
-
-		if (mesRF == "ifcolor"){
-			mesRF = mesLF
-		};
-
-		for (var xxx in mesR) {
-			mesR[xxx].style = `background-color: ${obj.value};`;
-			mesR3[xxx].style = `border-color: transparent; border-left-color: ${obj.value};`;
-		};
-		for (var xxx in mesRp) {
-			mesRp[xxx].style = `color: ${mesRF}; border-color: ${obj.value};`
-		};
+		mesBack(obj.value, 'left')
 	};
 
-	mesL = document.querySelectorAll("div[class='leftSays']");
-	mesL3 = document.querySelectorAll("div[class='left3kaku']");
-	mesLp = document.querySelectorAll("p[class='leftfont']");
-
-	for (var xx in mesL) {
-		mesL[xx].style = `background-color: ${obj.value};`;
-		mesL3[xx].style = `border-color: transparent; border-right-color: ${obj.value};`;
-	};
-	for (var xx in mesLp){
-		mesLp[xx].style = `color: ${mesLF}; border-color: ${obj.value};`
-	}
+	mesBack(obj.value, 'right')
 };
 
 function ocolor(obj){
 	var design = document.getElementById("design");
 	mmcolor = obj.value;
 
-	mFcolor = design.myfontcolor.value
-
 	if (mmcolor == "imescolor"){
 		mmcolor = design.mescolor.value;
 	};
 
-	if (mFcolor == "ifcolor"){
-		mFcolor = design.fontcolor.value;
-	};
-
-	mesR = document.querySelectorAll("div[class='rightSays']");
-	mesR3 = document.querySelectorAll("div[class='right3kaku']");
-	mesRp = document.querySelectorAll("p[class='rightfont']");
-
-	for (var xxx in mesR) {
-		mesR[xxx].style = `background-color: ${mmcolor};`;
-		mesR3[xxx].style = `border-color: transparent; border-left-color: ${mmcolor};`;
-	};
-	for (var xxx in mesRp) {
-		mesRp[xxx].style = `color: ${mFcolor}; border-color: ${mmcolor};`
-	};
+	mesBack(obj.value, 'left')
 };
 
 function delmesm(obj){
