@@ -20,9 +20,9 @@
 		<b>⚠Chrome以外のブラウザ（Safari等）からだとレイアウトが崩れる可能性アリ⚠</b>
 		<div id="back">
 			<div class="left">
-				<div>
-					<h2>トーク画面基本設定</h2>
-					<form id="design">
+				<h2>トーク画面基本設定</h2>
+				<form id="design">
+					<div id="senders">
 						<h3>テーマ一括選択</h3>
 						<input type="radio" name="teema" id="defultT" onclick="teeMa(this)" checked>
 						<label class="radiocheck" for="defultT">
@@ -89,22 +89,22 @@
 						<label class="radiocheck" for="bEDEFF3">
 							<i class="samplecolor" style="background-color: #EDEFF3;"></i>白
 						</label>
-						<h3>画像背景</h3>
-						<div style="text-align: left">
-							<input type="checkbox" id="bimage" onclick="bImage(this)">
-							<label for="bimage">画像背景オン</label>
-						</div>
-					</form>
-					<div id="backimage" style="display: none;">
-						<input type="file" name="display_back" accept="image/*">
-						<div id="backPreview" style="display: block;">
-							※推奨画像比率・縦長９：16<br>
-							※縦辺を基準に自動サイズ変更<br>
-							※中央寄せ、余分は自動トリミング<br>
-							※トーク画面が長くなると繰り返し
+					</div>
+					<h3>画像背景</h3>
+					<div style="text-align: left">
+						<input type="checkbox" id="bimage" onclick="bImage(this)">
+						<label for="bimage">画像背景オン</label>
+						<div id="backimage" style="display: none;">
+							<input type="file" name="display_back" accept="image/*">
+							<div id="backPreview" style="display: block;">
+								※推奨画像比率・縦長９：16<br>
+								※縦辺を基準に自動サイズ変更<br>
+								※中央寄せ、余分は自動トリミング<br>
+								※トーク画面が長くなると繰り返し
+							</div>
 						</div>
 					</div>
-				</div>
+				</form>
 				<h2>
 					トーク画面名称<br>
 					(グループ名/トーク相手名)
