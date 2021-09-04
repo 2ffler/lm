@@ -346,6 +346,9 @@ function createThis() {
 	parent = document.getElementById('zooming')
 	parent.appendChild(zoom)
 
+	download = document.getElementById('download')
+	download.style = 'display: none;';
+
 	createImage = document.getElementById('createImage')
-	createImage.style = 'display: inline-block;'
+	createImage.style = 'display: block;';
 };
