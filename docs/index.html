@@ -20,114 +20,6 @@
 		<b>⚠Chrome以外のブラウザ（Safari等）からだとレイアウトが崩れる可能性アリ⚠</b>
 		<div id="back">
 			<div class="left">
-				<h2>
-					トーク画面名称<br>
-					(グループ名/トーク相手名)
-				</h2>
-				<input type="text" name="talkname" placeholder="十四文字以上は末尾省略">
-				<button type="button" name="nameresult" class="whitebutton" onclick="nameCreate()">決定</button>
-				<h2>トークメンバー</h2>
-				<button type="button" name="senderadd" class="whitebutton" onclick="senderadd()">もうひとり！</button>
-				<button type="button" name="senderadd5" class="whitebutton" onclick="senderadd5()">もうごにん！</button>
-				<div id="senders">
-					<div id="mem">
-						<h3>メッセが緑の方（伝われ）</h3>
-						<input type="checkbox" name="green" id="green" onclick="checkGreen(this)">
-						<label for="green" class="green">こっちもアイコンとユザネを表示</label>
-						<div id="checkG" style="display: none;">
-							<h4>・ユザネ</h4>
-							<input type="text" id="sender_0" class="sender" placeholder="メッセが緑の方（伝われ）">
-							<h4>・アイコン</h4>
-							<input type="file" id="icon_0" class="icon" onchange="iconPP(this)" accept="image/*">
-							<div id="iconP_0">
-								※推奨画像比率１：１<br>
-								※正円になるので表示時は端見えない
-							</div>
-							<div id="iconC_0">
-							</div>
-						</div>
-						<h3><i class="num">1</i>名様</h3>
-						<h4>・ユザネ</h4>
-						<input type="text" id="sender_1" class="sender" placeholder="メンバー名その1">
-						<h4>・アイコン</h4>
-						<input type="file" id="icon_1" class="icon" onchange="iconPP(this)" accept="image/*">
-						<div id="iconP_1">
-							※推奨画像比率１：１<br>
-							※正円になるので表示時は端見えない
-						</div>
-						<div id="iconC_1">
-						</div>
-					</div>
-					<button id="delb" class="whitebutton" style="display: none;" value="1" onclick="deleteBtn(this)">削除</button>
-				</div>
-				<button id="selectadd" class="whitebutton" onclick="selectadd(this)">メッセメンバー<br>名前アイコン確定</button>
-				<div id="mesmenu" style="display: none;">
-					<h2>メッセージ内容入力欄</h2>
-					<input type="checkbox" name="addD" id="addD" onclick="checkD(this)">
-					<label for="addD">
-						日付変更表示の入力
-					</label>
-					<div id="checkDF">
-						<select name="sender" onchange="changeName(this)">
-							<option value="0" hidden>誰からのメッセ？</option>
-						</select>
-						<select name="type" onchange="changeItem(this)">
-							<option value="0" hidden>なにで届いた？</option>
-							<option value="1">メッセージ</option>
-							<option value="2">不在着信</option>
-							<option value="3">不在じゃない着信</option>
-							<option value="4">メッセージ送信取消</option>
-							<option value="5">画像が送られてきました</option>
-						</select>
-						<textarea placeholder="メッセージ内容ここ。「なにで届いた？」を「メッセージ」にすると入力可能。
-ちなみに不在着信だと不在着信表示が出てくるし不在じゃない着信だと応答時間が表記される。
-画像にすると画像アップロード用の枠が出てくる。" class="messagearea" name="message" disabled></textarea>
-						<input type="file" id="mesImage" name="image" accept="image/*" style="display: none;">
-						<div id="tuwatimeopen" style="display: none;">
-							何時間何分何秒の通話？ <input type="time" name="tuwatime" step="2" value="21:21:21">
-						</div>
-						<div id="kidokukanren">
-							<input type="checkbox" name="timehyouji" id="timehyouji" style="margin-left: 0.5em;" checked>
-							<label for="timehyouji">時間表示する</label>
-							<input type="time" name="time" value="21:15">
-							<br>
-							<input type="checkbox" name="kidoku" id="kidoku" onchange="kidoku(this)" style="margin-left: 0.5em;" checked>
-							<label for="kidoku">既読表示する</label>
-							<br>
-							<input type="checkbox" name="senderNameopen" id="senderNameopen" style="margin-left: 0.5em;" disabled>
-							<label for="senderNameopen">名前表示する</label>
-						</div>
-						<select name="kidokuCount" style="display: none;" onchange="changeSender(this)">
-						</select>
-					</div>
-					<div id="checkDT" style="display: none;">
-						<input type="radio" name="mdata" id="today" value="今日" onclick="changeData(this)" checked>
-						<label class="radiocheck" for="today">
-							今日
-						</label>
-						<input type="radio" name="mdata" id="yesterday" value="昨日" onclick="changeData(this)">
-						<label class="radiocheck" for="yesterday">
-							昨日
-						</label>
-						<input type="radio" name="mdata" id="mdatainput" value="0" onclick="changeData(this)">
-						<label class="radiocheck" for="mdatainput">
-							※詳細日付
-						</label>
-						<div id="mmdata" style="display: none;">
-							<input type="date" id="data" value="2018-10-31">
-							<br>
-							<input type="checkbox" name="year" checked>日付の西暦を入力する
-						</div>
-					</div>
-					<h4 style="margin-top: 0.5em;">メッセージ追加位置</h4>
-					<select name="mespos" onchange="changeSender(this)">
-						<option value="0" hidden>どこに入れる？</option>
-						<option value="new">一番下（新）</option>
-					</select>
-					<button type="button" name="addmessage" class="whitebutton" onclick="addmessage(this)">メッセ追加</button>
-				</div>
-			</div>
-			<div class="left">
 				<div>
 					<h2>トーク画面基本設定</h2>
 					<form id="design">
@@ -213,6 +105,112 @@
 						</div>
 					</div>
 				</div>
+				<h2>
+					トーク画面名称<br>
+					(グループ名/トーク相手名)
+				</h2>
+				<input type="text" name="talkname" placeholder="十四文字以上は末尾省略">
+				<button type="button" name="nameresult" class="whitebutton" onclick="nameCreate()">決定</button>
+				<h2>トークメンバー</h2>
+				<button type="button" name="senderadd" class="whitebutton" onclick="senderadd()">もうひとり！</button>
+				<button type="button" name="senderadd5" class="whitebutton" onclick="senderadd5()">もうごにん！</button>
+				<div id="senders">
+					<div id="mem">
+						<h3>メッセが緑の方（伝われ）</h3>
+						<input type="checkbox" name="green" id="green" onclick="checkGreen(this)">
+						<label for="green" class="green">こっちもアイコンとユザネを表示</label>
+						<div id="checkG" style="display: none;">
+							<h4>・ユザネ</h4>
+							<input type="text" id="sender_0" class="sender" placeholder="メッセが緑の方（伝われ）">
+							<h4>・アイコン</h4>
+							<input type="file" id="icon_0" class="icon" onchange="iconPP(this)" accept="image/*">
+							<div id="iconP_0">
+								※推奨画像比率１：１<br>
+								※正円になるので表示時は端見えない
+							</div>
+							<div id="iconC_0">
+							</div>
+						</div>
+						<h3><i class="num">1</i>名様</h3>
+						<h4>・ユザネ</h4>
+						<input type="text" id="sender_1" class="sender" placeholder="メンバー名その1">
+						<h4>・アイコン</h4>
+						<input type="file" id="icon_1" class="icon" onchange="iconPP(this)" accept="image/*">
+						<div id="iconP_1">
+							※推奨画像比率１：１<br>
+							※正円になるので表示時は端見えない
+						</div>
+						<div id="iconC_1">
+						</div>
+					</div>
+					<button id="delb" class="whitebutton" style="display: none;" value="1" onclick="deleteBtn(this)">削除</button>
+				</div>
+				<button id="selectadd" class="whitebutton" onclick="selectadd(this)">メッセメンバー<br>名前アイコン確定</button>
+			</div>
+			<div class="left">
+				<div id="mesmenu" style="display: none;">
+					<h2>メッセージ内容入力欄</h2>
+					<input type="checkbox" name="addD" id="addD" onclick="checkD(this)">
+					<label for="addD">
+						日付変更表示の入力
+					</label>
+					<div id="checkDF">
+						<select name="sender" onchange="changeName(this)">
+							<option value="0" hidden>誰からのメッセ？</option>
+						</select>
+						<select name="type" onchange="changeItem(this)">
+							<option value="0" hidden>なにで届いた？</option>
+							<option value="1">メッセージ</option>
+							<option value="2">不在着信</option>
+							<option value="3">不在じゃない着信</option>
+							<option value="4">メッセージ送信取消</option>
+							<option value="5">画像が送られてきました</option>
+						</select>
+						<textarea placeholder="メッセージ内容ここ。「なにで届いた？」を「メッセージ」にすると入力可能。ちなみに不在着信だと不在着信表示が出てくるし不在じゃない着信だと応答時間が表記される。画像にすると画像アップロード用の枠が出てくる。" class="messagearea" name="message" disabled></textarea>
+						<input type="file" id="mesImage" name="image" accept="image/*" style="display: none;">
+						<div id="tuwatimeopen" style="display: none;">
+							何時間何分何秒の通話？ <input type="time" name="tuwatime" step="2" value="21:21:21">
+						</div>
+						<div id="kidokukanren">
+							<input type="checkbox" name="timehyouji" id="timehyouji" style="margin-left: 0.5em;" checked>
+							<label for="timehyouji">時間表示する</label>
+							<input type="time" name="time" value="21:15">
+							<br>
+							<input type="checkbox" name="kidoku" id="kidoku" onchange="kidoku(this)" style="margin-left: 0.5em;" checked>
+							<label for="kidoku">既読表示する</label>
+							<br>
+							<input type="checkbox" name="senderNameopen" id="senderNameopen" style="margin-left: 0.5em;" disabled>
+							<label for="senderNameopen">名前表示する</label>
+						</div>
+						<select name="kidokuCount" style="display: none;" onchange="changeSender(this)">
+						</select>
+					</div>
+					<div id="checkDT" style="display: none;">
+						<input type="radio" name="mdata" id="today" value="今日" onclick="changeData(this)" checked>
+						<label class="radiocheck" for="today">
+							今日
+						</label>
+						<input type="radio" name="mdata" id="yesterday" value="昨日" onclick="changeData(this)">
+						<label class="radiocheck" for="yesterday">
+							昨日
+						</label>
+						<input type="radio" name="mdata" id="mdatainput" value="0" onclick="changeData(this)">
+						<label class="radiocheck" for="mdatainput">
+							※詳細日付
+						</label>
+						<div id="mmdata" style="display: none;">
+							<input type="date" id="data" value="2018-10-31">
+							<br>
+							<input type="checkbox" name="year" checked>日付の西暦を入力する
+						</div>
+					</div>
+					<h4 style="margin-top: 0.5em;">メッセージ追加位置</h4>
+					<select name="mespos" onchange="changeSender(this)">
+						<option value="0" hidden>どこに入れる？</option>
+						<option value="new">一番下（新）</option>
+					</select>
+					<button type="button" name="addmessage" class="whitebutton" onclick="addmessage(this)">メッセ追加</button>
+				</div>
 				<h4>見本↓</h4>
 				<div id="previeW">
 					<div id="backPreviewC">
@@ -228,7 +226,7 @@
 							</div>
 							<div class="cComment">
 								<div class="leftFaceicon" style="margin-right: -0.4375em;">
-									<img src="image/liersmall.png">
+									<img src="image/liersmall.png" class="LinEiconPre">
 								</div>
 								<div class="leftChatting">
 									<div class="sendername">
