@@ -353,6 +353,8 @@ function createThis() {
 
 		str = bpc.firstChild
 
+		console.log(str)
+
 		imgheight = bpc.firstChild.height;
 		count = Math.ceil(height / imgheight)
 
