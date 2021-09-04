@@ -313,6 +313,8 @@ function createThis() {
 
 	zoomlist = zoom.querySelectorAll('div')
 
+	talkdisplay = document.getElementById('talkadd');
+
 	height = (talkdisplay.clientHeight * 2) + (16 * 12)
 
 	for (var i in zoomlist){
