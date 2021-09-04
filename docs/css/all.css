@@ -84,12 +84,6 @@ h4{
 	margin: 0.75em 0.5em 0.5em;
 }
 
-h5{
-	height: 2em;
-	font-size: 100%;
-	background: linear-gradient(transparent 60%, #bbb 60%);
-	font-weight: normal;
-}
 
 #loader-bg {
 	display: none;
@@ -332,30 +326,11 @@ form{
 	object-fit: cover;
 }
 
-.canvas{
-	margin: 0 auto;
-	width: 750px;
-	height: 1334px;
-}
-
-.view{
-	max-width: 600px;
-	max-height: 300px;
-	margin: 0 auto;
-	padding: 0;
-	overflow: scroll;
-}
-
 #result{
 	width: 21.5em;
 	margin: 0;
 	padding: 0;
 	font-size: 100%;
-}
-
-.num{
-	padding: 0 2px;
-	font-style: normal;
 }
 
 .samplecolor{
