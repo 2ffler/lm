@@ -13,10 +13,11 @@ function imageCreateThis(image, nameing) {
 	// ファイル読み取りに失敗したとき
 	reader.onerror = function() {
 		image.remove();
-	}
+	};
 	// ファイル読み取りに成功したとき
 	reader.onload = function() {
 		image.innerHTML = `<img src="${reader.result}">`
+		return image
 	};
 };
 
@@ -137,7 +138,8 @@ function addmessage(obj) {
 
 		if (which == 'left') {
 			talk.appendChild(icon)
-			imageCreateThis(icon, `input[id='icon_${check2sender}']`)
+			img = imageCreateThis(icon, `input[id='icon_${check2sender}']`)
+			img.className = 'iconPreview'
 		};
 
 		textmessage.className = `${which}Chatting`
@@ -249,7 +251,7 @@ function addmessage(obj) {
 
 		if (which == 'right' && myName == true) {
 			talk.appendChild(icon)
-			imageCreateThis(icon, `icon_${check2sender}`)
+			imageCreateThis(icon, `input[id='icon_${check2sender}']`)
 		};
 	};
 
