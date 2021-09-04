@@ -353,16 +353,18 @@ function createThis() {
 
 		str = bpc.firstChild
 
-		console.log(str)
-
-		imgheight = bpc.firstChild.height;
+		imgheight = str.height;
 		count = Math.ceil(height / imgheight)
 
-		bpc.innerHTML = str
+		img = '<img src="' + str.src + '" class="backPreview">'
+
+		str = img
 
 		for (var i = 0; i < count; i++){
-			bpc.appendChild(str)
+			str += img
 		};
+
+		bpc.innerHTML = str
 	};
 
 	download = document.getElementById('download')
