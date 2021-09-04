@@ -331,10 +331,6 @@ function teeMa(obj){
 	mycolor = design.mycolor.value;
 	backgroundcolor = design.backgroundcolor.value;
 
-	document.querySelector("div[id='backimage']").style.display = 'none';
-	document.querySelector("div[id='backPreviewC']").style.display = 'none';
-	document.querySelector("div[id='backcolor']").style.display = 'block';
-
 	fontColorThis(fL, fontcolor)
 	fontColorThis(fR, myfontcolor)
 
