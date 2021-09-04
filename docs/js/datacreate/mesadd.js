@@ -322,6 +322,20 @@ function createThis() {
 		if (zoomlist[i].id == 'backPreviewC'){
 			zoomlist[i].id = 'bpc'
 			zoomlist[i].style.height =  `${height}px;`
+
+			str = zoomlist[i].firstChild
+
+			if (str != null){
+
+				imgheight = str.height;
+				count = Math.ceil(height / imgheight)
+
+				zoomlist[i].innerHTML = ''
+
+				for (var i = 0; i < count; i++){
+					zoomlist[i].appendChild(str)
+				};
+			};
 		} else if (zoomlist[i].id == 'backcolor'){
 			zoomlist[i].id = 'bc'
 			zoomlist[i].style.height = `${height}px`;
