@@ -322,20 +322,6 @@ function createThis() {
 		if (zoomlist[i].id == 'backPreviewC'){
 			zoomlist[i].id = 'bpc'
 			zoomlist[i].style.height =  `${height}px;`
-
-			str = zoomlist[i].firstChild
-
-			if (str != null && str.className == 'backPreview'){
-
-				imgheight = str.height;
-				count = Math.ceil(height / imgheight)
-
-				zoomlist[i].innerHTML = ''
-
-				for (var i = 0; i < count; i++){
-					zoomlist[i].appendChild(str)
-				};
-			};
 		} else if (zoomlist[i].id == 'backcolor'){
 			zoomlist[i].id = 'bc'
 			zoomlist[i].style.height = `${height}px`;
@@ -359,6 +345,23 @@ function createThis() {
 
 	parent = document.getElementById('zooming')
 	parent.appendChild(zoom)
+
+
+	bpc = document.getElementById('bpc')
+
+	if (bpc.firstChild != null && bpc.firstChild.className == 'backPreview'){
+
+		str = bpc.firstChild
+
+		imgheight = bpc.firstChild.height;
+		count = Math.ceil(height / imgheight)
+
+		bpc.innerHTML = str
+
+		for (var i = 0; i < count; i++){
+			bpc.appendChild(str)
+		};
+	};
 
 	download = document.getElementById('download')
 	download.style = 'display: none;';
