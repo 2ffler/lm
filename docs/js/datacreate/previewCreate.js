@@ -33,10 +33,12 @@ if(window.File) {
 
 			height = img.clientHeight
 
-			console.log(height)
+			talkdisplay = document.getElementById('talkadd');
 
-			if (height < 40) {
-				count = Math.ceil(40 / height)
+			tDheight = talkdisplay.height
+
+			if (height < tDheight) {
+				count = Math.ceil(tDheight / height)
 				str = ''
 				for (var i = 0; i < count; i++){
 					str += insert
