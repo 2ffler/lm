@@ -23,29 +23,33 @@ if(window.File) {
 			backPreview.style = 'display: block;';
 			backPreviewC.innerHTML = '';
 		}
+
+		const img = new Image();
+
 		// ファイル読み取りに成功したとき
 		reader.onload = function() {
 			const insert = '<img src="' + reader.result + '" class="backPreview">';
 			backPreview.style = 'display: none;';
 			backPreviewC.innerHTML = insert;
 
-			img = document.getElementById('backPreviewC')
+			img.onload = function() {
+				height = img.height;
 
-			height = img.clientHeight
+				talkdisplay = document.getElementById('previeW');
 
-			talkdisplay = document.getElementById('previeW');
+				tDheight = talkdisplay.clientHeight
 
-			tDheight = talkdisplay.height
-
-			if (height < tDheight) {
-				count = Math.ceil(tDheight / height)
-				str = insert
-				for (var i = 0; i < count; i++){
-					str += insert
-				}
-				backPreviewC.innerHTML = str;
-			}
-		}
+				if (height < tDheight) {
+					count = Math.ceil(tDheight / height)
+					str = insert
+					for (var i = 0; i < count; i++){
+						str += insert
+					}
+					backPreviewC.innerHTML = str;
+				};
+			};
+			img.src = reader.result;
+		};
 		// ファイル読み取りを実行
 		reader.readAsDataURL(fileData);
 
