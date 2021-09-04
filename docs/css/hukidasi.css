@@ -98,14 +98,14 @@
 }
 
 .cComment {
-	margin: 1% 2%;
+	margin: 3.5px 7px;
 	overflow: hidden;
  	line-height: 1em;
   	text-align: left;
 }
 
 .rComment {
-	margin: 1% 2%;
+	margin: 3.5px 7px;
 	overflow: hidden;
  	line-height: 1em;
  	text-align: right;
@@ -238,6 +238,7 @@ p {
 	text-align: left;
 	margin: 0;
 	padding: 0;
+	width: 19em;
 	border: solid 0.5em;
 	border-radius: 0.5em;
 	line-height: 1.5em;
