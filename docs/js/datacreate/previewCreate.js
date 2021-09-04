@@ -39,7 +39,7 @@ if(window.File) {
 
 			if (height < tDheight) {
 				count = Math.ceil(tDheight / height)
-				str = ''
+				str = insert
 				for (var i = 0; i < count; i++){
 					str += insert
 				}
