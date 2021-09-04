@@ -33,7 +33,7 @@ if(window.File) {
 
 			height = img.clientHeight
 
-			talkdisplay = document.getElementById('talkadd');
+			talkdisplay = document.getElementById('previeW');
 
 			tDheight = talkdisplay.height
 
