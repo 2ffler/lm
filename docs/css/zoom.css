@@ -91,14 +91,14 @@ div#zoom .contentsWhite, .contentsBlack, .contentsGray{
 }
 
 div#zoom .cComment {
-	margin: 1% 2%;
+	margin: 7px 14px;
 	overflow: hidden;
  	line-height: 1em;
   	text-align: left;
 }
 
 div#zoom .rComment {
-	margin: 1% 2%;
+	margin: 7px 14px;
 	overflow: hidden;
  	line-height: 1em;
  	text-align: right;
@@ -231,6 +231,7 @@ div#zoom p {
 	text-align: left;
 	margin: 0;
 	padding: 0;
+	width: 19em;
 	border: solid 0.5em;
 	border-radius: 0.5em;
 	line-height: 1.5em;
