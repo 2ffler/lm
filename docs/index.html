@@ -196,10 +196,11 @@
 						<label class="radiocheck" for="bEDEFF3">
 							<i class="samplecolor" style="background-color: #EDEFF3;"></i>白
 						</label>
-						<input type="radio" name="backgroundcolor" id="bimage" value="bimage" onclick="bImageclick(this)">
-						<label class="radiocheck" for="bimage">
-							※画像背景
-						</label>
+						<h3>画像背景</h3>
+						<div style="text-align: left">
+							<input type="checkbox" id="bimage" onclick="bImage(this)">
+							<label for="bimage">画像背景オン</label>
+						</div>
 					</form>
 					<div id="backimage" style="display: none;">
 						<input type="file" name="display_back" accept="image/*">
