@@ -18,7 +18,7 @@ function imageCreateThis(image, nameing) {
 	reader.onload = function() {
 		image.innerHTML = `<img src="${reader.result}">`
 		if (nameing.indexOf('icon_') != -1){
-			image.className = `<img src="${reader.result}" class="iconPreview">`;
+			image.innerHTML = `<img src="${reader.result}" class="LinEiconPre">`;
 		};
 	};
 };
