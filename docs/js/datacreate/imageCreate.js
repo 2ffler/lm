@@ -13,7 +13,7 @@ btn.addEventListener("click",() => {
 		canvas.style = 'display: none;'
 		download.style = 'display: block;'
 
-	    zooming.appendChild(canvas)
+		zooming.appendChild(canvas)
 
 		var link = canvas.toDataURL("image/jpeg");
 		document.getElementById("download").href = link;
