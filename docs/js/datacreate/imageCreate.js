@@ -5,15 +5,15 @@ btn.addEventListener("click",() => {
 	html2canvas(document.getElementById("zoom")).then(canvas => {
 		createImage = document.getElementById("createImage")
 		that = document.getElementById("canvas");
-		download = document.getElementById("download");
 		onemore = document.getElementById("thisDownload");
+		download = document.getElementById("download");
 
 		that.remove()
 
 		canvas.id = 'canvas'
 		canvas.style = 'display: none;'
 		download.style = 'display: block;'
-		onemore.style = 'display: block;'
+		onemore.style.display = 'block'
 
 		createImage.appendChild(canvas)
 
