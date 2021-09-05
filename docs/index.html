@@ -353,6 +353,7 @@
 			<button type="button" id="create" class="whitebutton" style="display: none;" onclick="createThis()">内容確定</button>
 			<div id="zooming">
 				<div id="zoom" style="display: none;"></div>
+				<canvas id="canvas" style="display: none;"></div>
 			</div>
 			<div id="createImage" style="display: none;">
 				<button type="button" id="result" class="whitebutton">これでよし？</button>
@@ -360,8 +361,8 @@
 				<div id="thisDownload" style="display: none;">
 					<input type="checkbox" name="ダウンロード" id="ダウンロード" onchange="DownloadThis(this)">
 					<label for="ダウンロード">ダウンロードが上手くいかない人はこちらをチェック</label>
+					<img src="#" id="resultImg" style="width: 100%; display: none">
 				</div>
-				<canvas id="canvas" style="display: none;"></div>
 			</div>
 		</div>
 	</div>
