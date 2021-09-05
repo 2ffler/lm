@@ -19,6 +19,6 @@ btn.addEventListener("click",() => {
 
 		var link = canvas.toDataURL("image/jpeg");
 		document.getElementById("download").href = link;
-		document.getElementById("resultImg").href = link;
+		document.getElementById("resultImg").src = link;
 	});
 })
