@@ -23,11 +23,15 @@ let thisSEt = {
 }
 
 function DownloadThis(obj){
-	var canvas = document.getElementById('canvas')
+	var resultImg = document.getElementById('resultImg');
+	var zooming = document.getElementById("zooming");
+
 	if (obj.checked == true){
-		canvas.style = 'display: block;'
+		canvas.style.display = 'block'
+		zooming.style.display = 'none'
 	} else {
-		canvas.style = 'display: none;'
+		canvas.style.display = 'none'
+		zooming.style.display = 'block'
 	};
 };
 
