@@ -6,12 +6,14 @@ btn.addEventListener("click",() => {
 		createImage = document.getElementById("createImage")
 		that = document.getElementById("canvas");
 		download = document.getElementById("download");
+		onemore = document.getElementById("ダウンロードむずかち");
 
 		that.remove()
 
 		canvas.id = 'canvas'
 		canvas.style = 'display: none;'
 		download.style = 'display: block;'
+		onemore.style = 'display: block;'
 
 		createImage.appendChild(canvas)
 
