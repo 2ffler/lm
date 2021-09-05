@@ -293,6 +293,18 @@ form{
 	border: none;
 }
 
+.BottomContents{
+	display: block;
+	float: right;
+	margin: 0;
+	padding: 0;
+}
+.TopContents{
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
 #senders{
 	display: inline-block;
 	padding: 0 10px 20px;
