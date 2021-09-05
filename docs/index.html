@@ -150,6 +150,73 @@
 				<button id="selectadd" class="whitebutton" onclick="selectadd(this)">メッセメンバー<br>名前アイコン確定</button>
 			</div>
 			<div class="left">
+				<div id="mesmenu" style="display: none;">
+					<h2>メッセージ内容入力欄</h2>
+					<input type="checkbox" name="addD" id="addD" onclick="checkD(this)">
+					<label for="addD">
+						日付変更表示の入力
+					</label>
+					<div id="checkDF">
+						<select name="sender" onchange="changeName(this)">
+							<option value="0" hidden>誰からのメッセ？</option>
+						</select>
+						<select name="type" onchange="changeItem(this)">
+							<option value="0" hidden>なにで届いた？</option>
+							<option value="1">メッセージ</option>
+							<option value="2">不在着信</option>
+							<option value="3">不在じゃない着信</option>
+							<option value="4">メッセージ送信取消</option>
+							<option value="5">画像が送られてきました</option>
+						</select>
+						<textarea placeholder="メッセージ内容ここ。「なにで届いた？」を「メッセージ」にすると入力可能。
+ちなみに不在着信だと不在着信表示が出てくるし不在じゃない着信だと応答時間が表記される。
+画像にすると画像アップロード用の枠が出てくる。" class="messagearea" name="message" disabled></textarea>
+						<input type="file" id="mesImage" name="image" accept="image/*" style="display: none;">
+						<div id="tuwatimeopen" style="display: none;">
+							何時間何分何秒の通話？ <input type="time" name="tuwatime" step="2" value="21:21:21">
+						</div>
+						<div id="kidokukanren">
+							<input type="checkbox" name="timehyouji" id="timehyouji" style="margin-left: 0.5em;" checked>
+							<label for="timehyouji">時間表示する</label>
+							<input type="time" name="time" value="21:15">
+							<br>
+							<input type="checkbox" name="kidoku" id="kidoku" onchange="kidoku(this)" style="margin-left: 0.5em;" checked>
+							<label for="kidoku">既読表示する</label>
+							<br>
+							<input type="checkbox" name="senderNameopen" id="senderNameopen" style="margin-left: 0.5em;" disabled>
+							<label for="senderNameopen">名前表示する</label>
+						</div>
+						<select name="kidokuCount" style="display: none;" onchange="changeSender(this)">
+						</select>
+					</div>
+					<div id="checkDT" style="display: none;">
+						<input type="radio" name="mdata" id="today" value="今日" onclick="changeData(this)" checked>
+						<label class="radiocheck" for="today">
+							今日
+						</label>
+						<input type="radio" name="mdata" id="yesterday" value="昨日" onclick="changeData(this)">
+						<label class="radiocheck" for="yesterday">
+							昨日
+						</label>
+						<input type="radio" name="mdata" id="mdatainput" value="0" onclick="changeData(this)">
+						<label class="radiocheck" for="mdatainput">
+							※詳細日付
+						</label>
+						<div id="mmdata" style="display: none;">
+							<input type="date" id="data" value="2018-10-31">
+							<br>
+							<input type="checkbox" name="year" checked>日付の西暦を入力する
+						</div>
+					</div>
+					<h4 style="margin-top: 0.5em;">メッセージ追加位置</h4>
+					<select name="mespos" onchange="changeSender(this)">
+						<option value="new" hidden>どこに入れる？</option>
+						<option value="new">一番下（新）</option>
+					</select>
+					<button type="button" name="addmessage" class="whitebutton" onclick="addmessage(this)">メッセ追加</button>
+				</div>
+			</div>
+			<div class="left">
 				<h4>見本↓</h4>
 				<div id="previeW">
 					<div id="backPreviewC">
@@ -270,73 +337,6 @@
 					<button type="button" name="delmessage" class="whitebutton" onclick="delmessage()">メッセ削除</button>
 				</div>
 				<script type="text/javascript" src="js/datacreate/previewCreate.js"></script>
-			</div>
-			<div class="left">
-				<div id="mesmenu" style="display: none;">
-					<h2>メッセージ内容入力欄</h2>
-					<input type="checkbox" name="addD" id="addD" onclick="checkD(this)">
-					<label for="addD">
-						日付変更表示の入力
-					</label>
-					<div id="checkDF">
-						<select name="sender" onchange="changeName(this)">
-							<option value="0" hidden>誰からのメッセ？</option>
-						</select>
-						<select name="type" onchange="changeItem(this)">
-							<option value="0" hidden>なにで届いた？</option>
-							<option value="1">メッセージ</option>
-							<option value="2">不在着信</option>
-							<option value="3">不在じゃない着信</option>
-							<option value="4">メッセージ送信取消</option>
-							<option value="5">画像が送られてきました</option>
-						</select>
-						<textarea placeholder="メッセージ内容ここ。「なにで届いた？」を「メッセージ」にすると入力可能。
-ちなみに不在着信だと不在着信表示が出てくるし不在じゃない着信だと応答時間が表記される。
-画像にすると画像アップロード用の枠が出てくる。" class="messagearea" name="message" disabled></textarea>
-						<input type="file" id="mesImage" name="image" accept="image/*" style="display: none;">
-						<div id="tuwatimeopen" style="display: none;">
-							何時間何分何秒の通話？ <input type="time" name="tuwatime" step="2" value="21:21:21">
-						</div>
-						<div id="kidokukanren">
-							<input type="checkbox" name="timehyouji" id="timehyouji" style="margin-left: 0.5em;" checked>
-							<label for="timehyouji">時間表示する</label>
-							<input type="time" name="time" value="21:15">
-							<br>
-							<input type="checkbox" name="kidoku" id="kidoku" onchange="kidoku(this)" style="margin-left: 0.5em;" checked>
-							<label for="kidoku">既読表示する</label>
-							<br>
-							<input type="checkbox" name="senderNameopen" id="senderNameopen" style="margin-left: 0.5em;" disabled>
-							<label for="senderNameopen">名前表示する</label>
-						</div>
-						<select name="kidokuCount" style="display: none;" onchange="changeSender(this)">
-						</select>
-					</div>
-					<div id="checkDT" style="display: none;">
-						<input type="radio" name="mdata" id="today" value="今日" onclick="changeData(this)" checked>
-						<label class="radiocheck" for="today">
-							今日
-						</label>
-						<input type="radio" name="mdata" id="yesterday" value="昨日" onclick="changeData(this)">
-						<label class="radiocheck" for="yesterday">
-							昨日
-						</label>
-						<input type="radio" name="mdata" id="mdatainput" value="0" onclick="changeData(this)">
-						<label class="radiocheck" for="mdatainput">
-							※詳細日付
-						</label>
-						<div id="mmdata" style="display: none;">
-							<input type="date" id="data" value="2018-10-31">
-							<br>
-							<input type="checkbox" name="year" checked>日付の西暦を入力する
-						</div>
-					</div>
-					<h4 style="margin-top: 0.5em;">メッセージ追加位置</h4>
-					<select name="mespos" onchange="changeSender(this)">
-						<option value="new" hidden>どこに入れる？</option>
-						<option value="new">一番下（新）</option>
-					</select>
-					<button type="button" name="addmessage" class="whitebutton" onclick="addmessage(this)">メッセ追加</button>
-				</div>
 			</div>
 		</div>
 		<div style="display: inline-block; margin: 0 auto;">
