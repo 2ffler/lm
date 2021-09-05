@@ -152,8 +152,7 @@
 				</div>
 			</div>
 			<div class="BottomContents">
-				<div class="left">
-					<div id="mesmenu" style="display: none;">
+				<div class="left" id="mesmenu" style="display: none;">
 						<h2>メッセージ内容入力欄</h2>
 						<input type="checkbox" name="addD" id="addD" onclick="checkD(this)">
 						<label for="addD">
@@ -171,9 +170,7 @@
 								<option value="4">メッセージ送信取消</option>
 								<option value="5">画像が送られてきました</option>
 							</select>
-							<textarea placeholder="メッセージ内容ここ。「なにで届いた？」を「メッセージ」にすると入力可能。
-ちなみに不在着信だと不在着信表示が出てくるし不在じゃない着信だと応答時間が表記される。
-画像にすると画像アップロード用の枠が出てくる。" class="messagearea" name="message" disabled></textarea>
+							<textarea placeholder="メッセージ内容ここ。「なにで届いた？」を「メッセージ」にすると入力可能。ちなみに不在着信だと不在着信表示が出てくるし不在じゃない着信だと応答時間が表記される。画像にすると画像アップロード用の枠が出てくる。" class="messagearea" name="message" disabled></textarea>
 							<input type="file" id="mesImage" name="image" accept="image/*" style="display: none;">
 							<div id="tuwatimeopen" style="display: none;">
 								何時間何分何秒の通話？ <input type="time" name="tuwatime" step="2" value="21:21:21">
@@ -217,7 +214,6 @@
 							<option value="new">一番下（新）</option>
 						</select>
 						<button type="button" name="addmessage" class="whitebutton" onclick="addmessage(this)">メッセ追加</button>
-					</div>
 				</div>
 				<div class="left">
 					<h4>見本↓</h4>
