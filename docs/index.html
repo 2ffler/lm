@@ -108,7 +108,7 @@
 						</div>
 					</form>
 				</div>
-				<div class="left">
+				<div class="left" style="text-align: center;">
 					<h2>
 						トーク画面名称<br>
 						(グループ名/トーク相手名)
@@ -171,24 +171,33 @@
 								<option value="4">メッセージ送信取消</option>
 								<option value="5">画像が送られてきました</option>
 							</select>
-							<textarea placeholder="メッセージ内容ここ。「なにで届いた？」を「メッセージ」にすると入力可能。ちなみに不在着信だと不在着信表示が出てくるし不在じゃない着信だと応答時間が表記される。画像にすると画像アップロード用の枠が出てくる。" class="messagearea" name="message" disabled></textarea>
+							<textarea placeholder="メッセージ内容ここ。「なにで届いた？」を「メッセージ」にすると入力可能。
+ちなみに不在着信だと不在着信表示が出てくるし不在じゃない着信だと応答時間が表記される。
+画像にすると画像アップロード用の枠が出てくる。" class="messagearea" name="message" disabled></textarea>
 							<input type="file" id="mesImage" name="image" accept="image/*" style="display: none;">
 							<div id="tuwatimeopen" style="display: none;">
 								何時間何分何秒の通話？ <input type="time" name="tuwatime" step="2" value="21:21:21">
 							</div>
 							<div id="kidokukanren">
-								<input type="checkbox" name="timehyouji" id="timehyouji" style="margin-left: 0.5em;" checked>
+								<input type="checkbox" name="timehyouji" onchange="timeChange(this)" id="timehyouji" checked>
 								<label for="timehyouji">時間表示する</label>
-								<input type="time" name="time" value="21:15">
-								<br>
-								<input type="checkbox" name="kidoku" id="kidoku" onchange="kidoku(this)" style="margin-left: 0.5em;" checked>
-								<label for="kidoku">既読表示する</label>
-								<br>
-								<input type="checkbox" name="senderNameopen" id="senderNameopen" style="margin-left: 0.5em;" disabled>
-								<label for="senderNameopen">名前表示する</label>
+								<div id="timeKanren">
+									<input type="time" name="time" value="21:15">
+									<button type="button" onclick="timeRandom()">時間ランダム設定</button>
+									<input type="time" name="addtime" value="00:01">
+									<button type="button" onclick="timePlus()">時間追加ボタン</button>
+								</div>
+								<script type="text/javascript" src="js/datacreate/timeSEt.js"></script>
+								<div id="kidokuCheck">
+									<input type="checkbox" name="kidoku" id="kidoku" checked>
+									<label for="kidoku">既読表示する</label>
+									<select name="kidokuCount" style="display: none;" onchange="changeSender(this)"></select>
+								</div>
+								<div id="NameThis" style="display: none;">
+									<input type="checkbox" name="senderNameopen" id="senderNameopen">
+									<label for="senderNameopen">名前表示する</label>
+								</div>
 							</div>
-							<select name="kidokuCount" style="display: none;" onchange="changeSender(this)">
-							</select>
 						</div>
 						<div id="checkDT" style="display: none;">
 							<input type="radio" name="mdata" id="today" value="今日" onclick="changeData(this)" checked>
@@ -231,10 +240,10 @@
 									</div>
 								</div>
 								<div class="cComment">
-									<div class="leftFaceicon" style="margin-right: -0.4375em;">
+									<div class="leftFaceicon">
 										<img src="image/liersmall.png" class="LinEiconPre">
 									</div>
-									<div class="leftChatting">
+									<div class="leftChatting" style="margin-left: -0.4375em;">
 										<div class="sendername">
 											<div class="kidoku">
 												LIER
@@ -265,9 +274,9 @@
 											<p class="rightfont" style="border-color: #9DE693;">右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文</p>
 										</div>
 									</div>
-								</div>
-								<div class="rightFaceicon"  style="display: none;">
-									<img src="image/liersmall.png">
+									<div class="rightFaceicon" style="display: none;">
+										<img src="image/liersmall.png" class="LinEiconPre">
+									</div>
 								</div>
 							</div>
 							<div id="talkadd"></div>
