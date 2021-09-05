@@ -27,10 +27,10 @@ function DownloadThis(obj){
 	var zooming = document.getElementById("zooming");
 
 	if (obj.checked == true){
-		canvas.style.display = 'block'
+		resultImg.style.display = 'block'
 		zooming.style.display = 'none'
 	} else {
-		canvas.style.display = 'none'
+		resultImg.style.display = 'none'
 		zooming.style.display = 'block'
 	};
 };
