@@ -31,7 +31,7 @@ function timePlus() {
 		hOur += 1;
 	};
 
-	if (hOur > 24) {
+	if (hOur > 23) {
 		hOur -= 24;
 	};
 
