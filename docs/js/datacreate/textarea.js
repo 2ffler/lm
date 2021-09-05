@@ -22,17 +22,6 @@ let thisSEt = {
 	}
 }
 
-function kidoku(obj){
-	v = document.getElementById('delb').value
-	kid = document.querySelector('select[name="kidokuCount"]');
-
-	if(obj.checked == false || v < 2){
-		kid.style = 'display: none;'
-	} else {
-		kid.style = 'display: block;'
-	};
-};
-
 function nameCreate(){
 	obj =  document.querySelector('input[name="talkname"]').value;
 	var sankou = document.getElementById('delb').value;
@@ -61,16 +50,19 @@ function changeSender(obj){
 function changeName(obj){
 	changeSender(obj);
 	senderName = document.getElementById('senderNameopen')
+	senderName2 = document.getElementById('NameThis');
 	myName = document.querySelector('input[id="green"]').checked
 	kidoku = document.getElementById('kidoku')
+	kidoku2 = document.getElementById('kidokuCheck')
 
 	kidokucount = document.querySelector('select[name="kidokuCount"]');
 
-	kidokucount.style = 'display: none;'
-	kidoku.disabled = false
-	kidoku.checked = true
-	senderName.disabled = false
-	senderName.checked = true
+	kidokucount.style = 'display: none;';
+	kidoku.checked = true;
+	kidoku2.style = 'display: block;';
+
+	senderName.checked = true;
+	senderName2.style = 'display: block;'
 
 	if (obj.value == 0){
 		
@@ -78,16 +70,16 @@ function changeName(obj){
 
 		if (v > 1){
 			kidokucount.style = 'display: block;'
-		}
+		};
 
 		if (myName == false){
-			senderName.checked = false
-			senderName.disabled = true
+			senderName.checked = false;
+			senderName2.style = 'display: none;';
 		};
 	} else {
-		kidoku.checked = false
-		kidoku.disabled = true
-	}
+		kidoku.checked = false;
+		kidoku2.style = 'display: none;'
+	};
 };
 
 function changeItem(obj){
@@ -214,18 +206,19 @@ function checkGreen(obj){
 	change = document.querySelector("div[id='checkG']");
 	iconchange = document.querySelectorAll("div[class='rightFaceicon']");
 	senderName = document.getElementById('senderNameopen');
+	senderName2 = document.getElementById('NameThis');
 
 	if (obj.checked == true) {
 		change.style = 'display: block;';
-		senderName.disabled = false
-		senderName.checked = true
+		senderName.checked = true;
+		senderName2.style = 'display: block;'
 		for (var ic in iconchange) {
 			iconchange[ic].style = 'display: inline-block;';
 		};
 	} else {
 		change.style = 'display: none;';
-		senderName.checked = false
-		senderName.disabled = true
+		senderName.checked = false;
+		senderName2.style = 'display: none;';
 		for (var ic in iconchange) {
 			iconchange[ic].style = 'display: none;';
 		};
