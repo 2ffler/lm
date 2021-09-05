@@ -22,6 +22,15 @@ let thisSEt = {
 	}
 }
 
+function DownloadThis(obj){
+	var canvas = document.getElementById('canvas')
+	if (obj.checked == true){
+		canvas.style = 'display: block;'
+	} else {
+		canvas.style = 'display: none;'
+	};
+};
+
 function nameCreate(){
 	obj =  document.querySelector('input[name="talkname"]').value;
 	var sankou = document.getElementById('delb').value;
