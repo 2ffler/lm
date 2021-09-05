@@ -357,7 +357,10 @@
 			<div id="createImage" style="display: none;">
 				<button type="button" id="result" class="whitebutton">これでよし？</button>
 				<a id="download" style="display: none;" href="#" download="canvas.jpg">ダウンロード</a>
-				<input type="checkbox" id="ダウンロード" onchange="DownloadThis(this)">
+				<div id="ダウンロードむずかち" style="display: none;">
+					<input type="checkbox" name="ダウンロード" id="ダウンロード" onchange="DownloadThis(this)">
+					<label for="ダウンロード">ダウンロードが上手くいかない人はこちらをチェック</label>
+				</div>
 				<canvas id="canvas" style="display: none;"></div>
 			</div>
 		</div>
