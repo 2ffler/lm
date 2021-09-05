@@ -19,324 +19,328 @@
 		<h1>ライン画面モドキ</h1>
 		<b>⚠Chrome以外のブラウザ（Safari等）からだとレイアウトが崩れる可能性アリ⚠</b>
 		<div id="back">
-			<div class="left">
-				<h2>トーク画面基本設定</h2>
-				<form id="design">
-					<div id="senders">
-						<h3>テーマ一括選択</h3>
-						<input type="radio" name="teema" id="defultT" onclick="teeMa(this)" checked>
-						<label class="radiocheck" for="defultT">
-							デフォ
-						</label>
-						<input type="radio" name="teema" id="whiteT" onclick="teeMa(this)">
-						<label class="radiocheck" for="whiteT">
-							テーマ白
-						</label>
-						<input type="radio" name="teema" id="blackT" onclick="teeMa(this)">
-						<label class="radiocheck" for="blackT">
-							テーマ黒
-						</label>
-						<h3>文字色</h3>
-						<input type="radio" name="fontcolor" id="f000000" value="#000000" onclick="color(this)" checked>
-						<label class="radiocheck" for="f000000">
-							<i class="samplecolor" style="background-color: #000000;"></i>黒
-						</label>
-						<input type="radio" name="fontcolor" id="fFFFFFF" value="#FFFFFF" onclick="color(this)">
-						<label class="radiocheck" for="fFFFFFF">
-							<i class="samplecolor" style="background-color: #FFFFFF;"></i>白
-						</label>
-						<h3>メッセージ背景色</h3>
-						<input type="radio" name="mescolor" id="mFFFFFF" value="#FFFFFF" onclick="mcolor(this)" checked>
-						<label class="radiocheck" for="mFFFFFF">
-							<i class="samplecolor" style="background-color: #FFFFFF;"></i>白
-						</label>
-						<input type="radio" name="mescolor" id="m2A2A2A" value="#2A2A2A" onclick="mcolor(this)">
-						<label class="radiocheck" for="m2A2A2A">
-							<i class="samplecolor" style="background-color: #2A2A2A;"></i>黒
-						</label>
-						<h3>文字色※黄緑の方</h3>
-						<input type="radio" name="myfontcolor" id="if000000" value="#000000" onclick="icolor(this)" checked>
-						<label class="radiocheck" for="if000000">
-							<i class="samplecolor" style="background-color: #000000;"></i>黒
-						</label>
-						<input type="radio" name="myfontcolor" id="ifcolor" value="ifcolor" onclick="icolor(this)">
-						<label class="radiocheck" for="ifcolor">
-							※個別設定無
-						</label>
-						<h3>メッセージ背景色※黄緑の方</h3>
-						<input type="radio" name="mycolor" id="i9DE693" value="#9DE693" onclick="ocolor(this)" checked>
-						<label class="radiocheck" for="i9DE693">
-							<i class="samplecolor" style="background-color: #9DE693;"></i>黄緑
-						</label>
-						<input type="radio" name="mycolor" id="iD5E0F4" value="#D5E0F4" onclick="ocolor(this)">
-						<label class="radiocheck" for="iD5E0F4">
-							<i class="samplecolor" style="background-color: #D5E0F4;"></i>水色
-						</label>
-						<input type="radio" name="mycolor" id="imescolor" value="imescolor" onclick="ocolor(this)">
-						<label class="radiocheck" for="imescolor">
-							※個別設定無
-						</label>
-						<h3>画面背景色</h3>
-						<input type="radio" name="backgroundcolor" id="bA0B5D9" value="#A0B5D9" onclick="bImageclick(this)" checked>
-						<label class="radiocheck" for="bA0B5D9">
-							<i class="samplecolor" style="background-color: #A0B5D9;"></i>水色
-						</label>
-						<input type="radio" name="backgroundcolor" id="b1A1A1A" value="#1A1A1A" onclick="bImageclick(this)">
-						<label class="radiocheck" for="b1A1A1A">
-							<i class="samplecolor" style="background-color: #1A1A1A;"></i>黒
-						</label>
-						<input type="radio" name="backgroundcolor" id="bEDEFF3" value="#EDEFF3" onclick="bImageclick(this)">
-						<label class="radiocheck" for="bEDEFF3">
-							<i class="samplecolor" style="background-color: #EDEFF3;"></i>白
-						</label>
-					</div>
-					<h3>画像背景</h3>
-					<div style="text-align: left">
-						<input type="checkbox" id="bimage" onclick="bImage(this)">
-						<label for="bimage">画像背景オン</label>
-						<div id="backimage" style="display: none;">
-							<input type="file" name="display_back" accept="image/*">
-							<div id="backPreview" style="display: block;">
-								※推奨画像比率・縦長９：16<br>
-								※縦辺を基準に自動サイズ変更<br>
-								※中央寄せ、余分は自動トリミング<br>
-								※トーク画面が長くなると繰り返し
+			<div class="TopContents">
+				<div class="left">
+					<h2>トーク画面基本設定</h2>
+					<form id="design">
+						<div id="senders">
+							<h3>テーマ一括選択</h3>
+							<input type="radio" name="teema" id="defultT" onclick="teeMa(this)" checked>
+							<label class="radiocheck" for="defultT">
+								デフォ
+							</label>
+							<input type="radio" name="teema" id="whiteT" onclick="teeMa(this)">
+							<label class="radiocheck" for="whiteT">
+								テーマ白
+							</label>
+							<input type="radio" name="teema" id="blackT" onclick="teeMa(this)">
+							<label class="radiocheck" for="blackT">
+								テーマ黒
+							</label>
+							<h3>文字色</h3>
+							<input type="radio" name="fontcolor" id="f000000" value="#000000" onclick="color(this)" checked>
+							<label class="radiocheck" for="f000000">
+								<i class="samplecolor" style="background-color: #000000;"></i>黒
+							</label>
+							<input type="radio" name="fontcolor" id="fFFFFFF" value="#FFFFFF" onclick="color(this)">
+							<label class="radiocheck" for="fFFFFFF">
+								<i class="samplecolor" style="background-color: #FFFFFF;"></i>白
+							</label>
+							<h3>メッセージ背景色</h3>
+							<input type="radio" name="mescolor" id="mFFFFFF" value="#FFFFFF" onclick="mcolor(this)" checked>
+							<label class="radiocheck" for="mFFFFFF">
+								<i class="samplecolor" style="background-color: #FFFFFF;"></i>白
+							</label>
+							<input type="radio" name="mescolor" id="m2A2A2A" value="#2A2A2A" onclick="mcolor(this)">
+							<label class="radiocheck" for="m2A2A2A">
+								<i class="samplecolor" style="background-color: #2A2A2A;"></i>黒
+							</label>
+							<h3>文字色※黄緑の方</h3>
+							<input type="radio" name="myfontcolor" id="if000000" value="#000000" onclick="icolor(this)" checked>
+							<label class="radiocheck" for="if000000">
+								<i class="samplecolor" style="background-color: #000000;"></i>黒
+							</label>
+							<input type="radio" name="myfontcolor" id="ifcolor" value="ifcolor" onclick="icolor(this)">
+							<label class="radiocheck" for="ifcolor">
+								※個別設定無
+							</label>
+							<h3>メッセージ背景色※黄緑の方</h3>
+							<input type="radio" name="mycolor" id="i9DE693" value="#9DE693" onclick="ocolor(this)" checked>
+							<label class="radiocheck" for="i9DE693">
+								<i class="samplecolor" style="background-color: #9DE693;"></i>黄緑
+							</label>
+							<input type="radio" name="mycolor" id="iD5E0F4" value="#D5E0F4" onclick="ocolor(this)">
+							<label class="radiocheck" for="iD5E0F4">
+								<i class="samplecolor" style="background-color: #D5E0F4;"></i>水色
+							</label>
+							<input type="radio" name="mycolor" id="imescolor" value="imescolor" onclick="ocolor(this)">
+							<label class="radiocheck" for="imescolor">
+								※個別設定無
+							</label>
+							<h3>画面背景色</h3>
+							<input type="radio" name="backgroundcolor" id="bA0B5D9" value="#A0B5D9" onclick="bImageclick(this)" checked>
+							<label class="radiocheck" for="bA0B5D9">
+								<i class="samplecolor" style="background-color: #A0B5D9;"></i>水色
+							</label>
+							<input type="radio" name="backgroundcolor" id="b1A1A1A" value="#1A1A1A" onclick="bImageclick(this)">
+							<label class="radiocheck" for="b1A1A1A">
+								<i class="samplecolor" style="background-color: #1A1A1A;"></i>黒
+							</label>
+							<input type="radio" name="backgroundcolor" id="bEDEFF3" value="#EDEFF3" onclick="bImageclick(this)">
+							<label class="radiocheck" for="bEDEFF3">
+								<i class="samplecolor" style="background-color: #EDEFF3;"></i>白
+							</label>
+						</div>
+						<h3>画像背景</h3>
+						<div style="text-align: left">
+							<input type="checkbox" id="bimage" onclick="bImage(this)">
+							<label for="bimage">画像背景オン</label>
+							<div id="backimage" style="display: none;">
+								<input type="file" name="display_back" accept="image/*">
+								<div id="backPreview" style="display: block;">
+									※推奨画像比率・縦長９：16<br>
+									※縦辺を基準に自動サイズ変更<br>
+									※中央寄せ、余分は自動トリミング<br>
+									※トーク画面が長くなると繰り返し
+								</div>
 							</div>
 						</div>
-					</div>
-				</form>
-			</div>
-			<div class="left">
-				<h2>
-					トーク画面名称<br>
-					(グループ名/トーク相手名)
-				</h2>
-				<input type="text" name="talkname" placeholder="十四文字以上は末尾省略">
-				<button type="button" name="nameresult" class="whitebutton" onclick="nameCreate()">決定</button>
-				<h2>トークメンバー</h2>
-				<button type="button" name="senderadd" class="whitebutton" onclick="senderadd()">もうひとり！</button>
-				<button type="button" name="senderadd5" class="whitebutton" onclick="senderadd5()">もうごにん！</button>
-				<div id="senders">
-					<div id="mem">
-						<h3>メッセが緑の方（伝われ）</h3>
-						<input type="checkbox" name="green" id="green" onclick="checkGreen(this)">
-						<label for="green" class="green">こっちもアイコンとユザネを表示</label>
-						<div id="checkG" style="display: none;">
+					</form>
+				</div>
+				<div class="left">
+					<h2>
+						トーク画面名称<br>
+						(グループ名/トーク相手名)
+					</h2>
+					<input type="text" name="talkname" placeholder="十四文字以上は末尾省略">
+					<button type="button" name="nameresult" class="whitebutton" onclick="nameCreate()">決定</button>
+					<h2>トークメンバー</h2>
+					<button type="button" name="senderadd" class="whitebutton" onclick="senderadd()">もうひとり！</button>
+					<button type="button" name="senderadd5" class="whitebutton" onclick="senderadd5()">もうごにん！</button>
+					<div id="senders">
+						<div id="mem">
+							<h3>メッセが緑の方（伝われ）</h3>
+							<input type="checkbox" name="green" id="green" onclick="checkGreen(this)">
+							<label for="green" class="green">こっちもアイコンとユザネを表示</label>
+							<div id="checkG" style="display: none;">
+								<h4>・ユザネ</h4>
+								<input type="text" id="sender_0" class="sender" placeholder="メッセが緑の方（伝われ）">
+								<h4>・アイコン</h4>
+								<input type="file" id="icon_0" class="icon" onchange="iconPP(this)" accept="image/*">
+								<div id="iconP_0">
+									※推奨画像比率１：１<br>
+									※正円になるので表示時は端見えない
+								</div>
+								<div id="iconC_0">
+								</div>
+							</div>
+							<h3><i class="num">1</i>名様</h3>
 							<h4>・ユザネ</h4>
-							<input type="text" id="sender_0" class="sender" placeholder="メッセが緑の方（伝われ）">
+							<input type="text" id="sender_1" class="sender" placeholder="メンバー名その1">
 							<h4>・アイコン</h4>
-							<input type="file" id="icon_0" class="icon" onchange="iconPP(this)" accept="image/*">
-							<div id="iconP_0">
+							<input type="file" id="icon_1" class="icon" onchange="iconPP(this)" accept="image/*">
+							<div id="iconP_1">
 								※推奨画像比率１：１<br>
 								※正円になるので表示時は端見えない
 							</div>
-							<div id="iconC_0">
+							<div id="iconC_1">
 							</div>
 						</div>
-						<h3><i class="num">1</i>名様</h3>
-						<h4>・ユザネ</h4>
-						<input type="text" id="sender_1" class="sender" placeholder="メンバー名その1">
-						<h4>・アイコン</h4>
-						<input type="file" id="icon_1" class="icon" onchange="iconPP(this)" accept="image/*">
-						<div id="iconP_1">
-							※推奨画像比率１：１<br>
-							※正円になるので表示時は端見えない
-						</div>
-						<div id="iconC_1">
-						</div>
+						<button id="delb" class="whitebutton" style="display: none;" value="1" onclick="deleteBtn(this)">削除</button>
 					</div>
-					<button id="delb" class="whitebutton" style="display: none;" value="1" onclick="deleteBtn(this)">削除</button>
+					<button id="selectadd" class="whitebutton" onclick="selectadd(this)">メッセメンバー<br>名前アイコン確定</button>
 				</div>
-				<button id="selectadd" class="whitebutton" onclick="selectadd(this)">メッセメンバー<br>名前アイコン確定</button>
 			</div>
-			<div class="left">
-				<div id="mesmenu" style="display: none;">
-					<h2>メッセージ内容入力欄</h2>
-					<input type="checkbox" name="addD" id="addD" onclick="checkD(this)">
-					<label for="addD">
-						日付変更表示の入力
-					</label>
-					<div id="checkDF">
-						<select name="sender" onchange="changeName(this)">
-							<option value="0" hidden>誰からのメッセ？</option>
-						</select>
-						<select name="type" onchange="changeItem(this)">
-							<option value="0" hidden>なにで届いた？</option>
-							<option value="1">メッセージ</option>
-							<option value="2">不在着信</option>
-							<option value="3">不在じゃない着信</option>
-							<option value="4">メッセージ送信取消</option>
-							<option value="5">画像が送られてきました</option>
-						</select>
-						<textarea placeholder="メッセージ内容ここ。「なにで届いた？」を「メッセージ」にすると入力可能。
+			<div class="BottomContents">
+				<div class="left">
+					<div id="mesmenu" style="display: none;">
+						<h2>メッセージ内容入力欄</h2>
+						<input type="checkbox" name="addD" id="addD" onclick="checkD(this)">
+						<label for="addD">
+							日付変更表示の入力
+						</label>
+						<div id="checkDF">
+							<select name="sender" onchange="changeName(this)">
+								<option value="0" hidden>誰からのメッセ？</option>
+							</select>
+							<select name="type" onchange="changeItem(this)">
+								<option value="0" hidden>なにで届いた？</option>
+								<option value="1">メッセージ</option>
+								<option value="2">不在着信</option>
+								<option value="3">不在じゃない着信</option>
+								<option value="4">メッセージ送信取消</option>
+								<option value="5">画像が送られてきました</option>
+							</select>
+							<textarea placeholder="メッセージ内容ここ。「なにで届いた？」を「メッセージ」にすると入力可能。
 ちなみに不在着信だと不在着信表示が出てくるし不在じゃない着信だと応答時間が表記される。
 画像にすると画像アップロード用の枠が出てくる。" class="messagearea" name="message" disabled></textarea>
-						<input type="file" id="mesImage" name="image" accept="image/*" style="display: none;">
-						<div id="tuwatimeopen" style="display: none;">
-							何時間何分何秒の通話？ <input type="time" name="tuwatime" step="2" value="21:21:21">
+							<input type="file" id="mesImage" name="image" accept="image/*" style="display: none;">
+							<div id="tuwatimeopen" style="display: none;">
+								何時間何分何秒の通話？ <input type="time" name="tuwatime" step="2" value="21:21:21">
+							</div>
+							<div id="kidokukanren">
+								<input type="checkbox" name="timehyouji" id="timehyouji" style="margin-left: 0.5em;" checked>
+								<label for="timehyouji">時間表示する</label>
+								<input type="time" name="time" value="21:15">
+								<br>
+								<input type="checkbox" name="kidoku" id="kidoku" onchange="kidoku(this)" style="margin-left: 0.5em;" checked>
+								<label for="kidoku">既読表示する</label>
+								<br>
+								<input type="checkbox" name="senderNameopen" id="senderNameopen" style="margin-left: 0.5em;" disabled>
+								<label for="senderNameopen">名前表示する</label>
+							</div>
+							<select name="kidokuCount" style="display: none;" onchange="changeSender(this)">
+							</select>
 						</div>
-						<div id="kidokukanren">
-							<input type="checkbox" name="timehyouji" id="timehyouji" style="margin-left: 0.5em;" checked>
-							<label for="timehyouji">時間表示する</label>
-							<input type="time" name="time" value="21:15">
-							<br>
-							<input type="checkbox" name="kidoku" id="kidoku" onchange="kidoku(this)" style="margin-left: 0.5em;" checked>
-							<label for="kidoku">既読表示する</label>
-							<br>
-							<input type="checkbox" name="senderNameopen" id="senderNameopen" style="margin-left: 0.5em;" disabled>
-							<label for="senderNameopen">名前表示する</label>
+						<div id="checkDT" style="display: none;">
+							<input type="radio" name="mdata" id="today" value="今日" onclick="changeData(this)" checked>
+							<label class="radiocheck" for="today">
+								今日
+							</label>
+							<input type="radio" name="mdata" id="yesterday" value="昨日" onclick="changeData(this)">
+							<label class="radiocheck" for="yesterday">
+								昨日
+							</label>
+							<input type="radio" name="mdata" id="mdatainput" value="0" onclick="changeData(this)">
+							<label class="radiocheck" for="mdatainput">
+								※詳細日付
+							</label>
+							<div id="mmdata" style="display: none;">
+								<input type="date" id="data" value="2018-10-31">
+								<br>
+								<input type="checkbox" name="year" checked>日付の西暦を入力する
+							</div>
 						</div>
-						<select name="kidokuCount" style="display: none;" onchange="changeSender(this)">
+						<h4 style="margin-top: 0.5em;">メッセージ追加位置</h4>
+						<select name="mespos" onchange="changeSender(this)">
+							<option value="new" hidden>どこに入れる？</option>
+							<option value="new">一番下（新）</option>
 						</select>
+						<button type="button" name="addmessage" class="whitebutton" onclick="addmessage(this)">メッセ追加</button>
 					</div>
-					<div id="checkDT" style="display: none;">
-						<input type="radio" name="mdata" id="today" value="今日" onclick="changeData(this)" checked>
-						<label class="radiocheck" for="today">
-							今日
-						</label>
-						<input type="radio" name="mdata" id="yesterday" value="昨日" onclick="changeData(this)">
-						<label class="radiocheck" for="yesterday">
-							昨日
-						</label>
-						<input type="radio" name="mdata" id="mdatainput" value="0" onclick="changeData(this)">
-						<label class="radiocheck" for="mdatainput">
-							※詳細日付
-						</label>
-						<div id="mmdata" style="display: none;">
-							<input type="date" id="data" value="2018-10-31">
-							<br>
-							<input type="checkbox" name="year" checked>日付の西暦を入力する
-						</div>
-					</div>
-					<h4 style="margin-top: 0.5em;">メッセージ追加位置</h4>
-					<select name="mespos" onchange="changeSender(this)">
-						<option value="new" hidden>どこに入れる？</option>
-						<option value="new">一番下（新）</option>
-					</select>
-					<button type="button" name="addmessage" class="whitebutton" onclick="addmessage(this)">メッセ追加</button>
 				</div>
-			</div>
-			<div class="left">
-				<h4>見本↓</h4>
-				<div id="previeW">
-					<div id="backPreviewC">
-					</div>
-					<div id="backcolor" style="background-color: #A0B5D9;">
-					</div>
-					<div id="talkContents">
-						<div id="preView">
-							<div class="chuoublock">
-								<div class='chuou'>
-									今日
+				<div class="left">
+					<h4>見本↓</h4>
+					<div id="previeW">
+						<div id="backPreviewC">
+						</div>
+						<div id="backcolor" style="background-color: #A0B5D9;">
+						</div>
+						<div id="talkContents">
+							<div id="preView">
+								<div class="chuoublock">
+									<div class='chuou'>
+										今日
+									</div>
 								</div>
-							</div>
-							<div class="cComment">
-								<div class="leftFaceicon" style="margin-right: -0.4375em;">
-									<img src="image/liersmall.png" class="LinEiconPre">
-								</div>
-								<div class="leftChatting">
-									<div class="sendername">
+								<div class="cComment">
+									<div class="leftFaceicon" style="margin-right: -0.4375em;">
+										<img src="image/liersmall.png" class="LinEiconPre">
+									</div>
+									<div class="leftChatting">
+										<div class="sendername">
+											<div class="kidoku">
+												LIER
+											</div>
+										</div>
+										<div class="leftSays" style="background-color: #FFFFFF;">
+											<div class="left3kaku" style="border-right-color: #FFFFFF;"></div>
+											<p class="leftfont" style="border-color: #ffffff;">左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文</p>
+										</div>
 										<div class="kidoku">
-											LIER
-										</div>
-									</div>
-									<div class="leftSays" style="background-color: #FFFFFF;">
-										<div class="left3kaku" style="border-right-color: #FFFFFF;"></div>
-										<p class="leftfont" style="border-color: #ffffff;">左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文</p>
-									</div>
-									<div class="kidoku">
-										<div style="margin: 0 -3px;">
-											21:22
+											<div style="margin: 0 -3px;">
+												21:22
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="rComment">
-								<div class="rightChatting">
-									<div class="kidoku">
-										<div style="margin: 0 -3px;">
-											既読
-											<br>
-											23:36
+								<div class="rComment">
+									<div class="rightChatting">
+										<div class="kidoku">
+											<div style="margin: 0 -3px;">
+												既読
+												<br>
+												23:36
+											</div>
+										</div>
+										<div class="rightSays" style="background-color: #9DE693;">
+											<div class="right3kaku" style="border-left-color: #9DE693;"></div>
+											<p class="rightfont" style="border-color: #9DE693;">右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文</p>
 										</div>
 									</div>
-									<div class="rightSays" style="background-color: #9DE693;">
-										<div class="right3kaku" style="border-left-color: #9DE693;"></div>
-										<p class="rightfont" style="border-color: #9DE693;">右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文右ふきだし文</p>
-									</div>
+								</div>
+								<div class="rightFaceicon"  style="display: none;">
+									<img src="image/liersmall.png">
 								</div>
 							</div>
-							<div class="rightFaceicon"  style="display: none;">
-								<img src="image/liersmall.png">
+							<div id="talkadd"></div>
+						</div>
+						<div id="lineContents" style="background-color: transparent; color: #000000;">
+							<div style="display: inline-block; margin: 0 0.5em;">
+								＜
+							</div>
+							<div style="display: inline-block; font-size: 0.85em; width: 63%; padding: 0; text-align: left;">
+								<div id="mesName">未設定</div>
+							</div>
+							<div class="contentsBlack">
+								<img class="lineIcon" src="image/searchB.png">
+								<img class="lineIcon" src="image/phoneB.png">
+								<img class="lineIcon" src="image/3lineB.png">
+							</div>
+							<div class="contentsGray" style="display: none;">
+								<img class="lineIcon" src="image/searchB.png">
+								<img class="lineIcon" src="image/phoneB.png">
+								<img class="lineIcon" src="image/3lineB.png">
+							</div>
+							<div class="contentsWhite" style="display: none;">
+								<img class="lineIcon" src="image/search.png">
+								<img class="lineIcon" src="image/phone.png">
+								<img class="lineIcon" src="image/3line.png">
 							</div>
 						</div>
-						<div id="talkadd"></div>
-					</div>
-					<div id="lineContents" style="background-color: transparent; color: #000000;">
-						<div style="display: inline-block; margin: 0 0.5em;">
-							＜
-						</div>
-						<div style="display: inline-block; font-size: 0.85em; width: 63%; padding: 0; text-align: left;">
-							<div id="mesName">未設定</div>
-						</div>
-						<div class="contentsBlack">
-							<img class="lineIcon" src="image/searchB.png">
-							<img class="lineIcon" src="image/phoneB.png">
-							<img class="lineIcon" src="image/3lineB.png">
-						</div>
-						<div class="contentsGray" style="display: none;">
-							<img class="lineIcon" src="image/searchB.png">
-							<img class="lineIcon" src="image/phoneB.png">
-							<img class="lineIcon" src="image/3lineB.png">
-						</div>
-						<div class="contentsWhite" style="display: none;">
-							<img class="lineIcon" src="image/search.png">
-							<img class="lineIcon" src="image/phone.png">
-							<img class="lineIcon" src="image/3line.png">
-						</div>
-					</div>
-					<div id="messageSendC" style="background-color: #FFFFFF; color: #000000;">
-						<div style="display: inline-block; margin: 0 0 0 0.45em; border: none;">
-							＋
-						</div>
-						<div class="contentsBlack">
-							<img class="lineIcon" src="image/camera3B.png">
-							<img class="lineIcon" src="image/imageB.png">
-						</div>
-						<div class="contentsGray" style="display: none;">
-							<img class="lineIcon" src="image/camera3G.png">
-							<img class="lineIcon" src="image/imageG.png">
-						</div>
-						<div class="contentsWhite" style="display: none;">
-							<img class="lineIcon" src="image/camera3.png">
-							<img class="lineIcon" src="image/image.png">
-						</div>
-						<div id="notsendmessage" style="background-color: #EDEFF3;">
-						</div>
-						<div class="contentsBlack">
-							<img class="lineIcon" src="image/mikeB.png">
-						</div>
-						<div class="contentsGray" style="display: none;">
-							<img class="lineIcon" src="image/mikeG.png">
-						</div>
-						<div class="contentsWhite" style="display: none;">
-							<img class="lineIcon" src="image/mike.png">
+						<div id="messageSendC" style="background-color: #FFFFFF; color: #000000;">
+							<div style="display: inline-block; margin: 0 0 0 0.45em; border: none;">
+								＋
+							</div>
+							<div class="contentsBlack">
+								<img class="lineIcon" src="image/camera3B.png">
+								<img class="lineIcon" src="image/imageB.png">
+							</div>
+							<div class="contentsGray" style="display: none;">
+								<img class="lineIcon" src="image/camera3G.png">
+								<img class="lineIcon" src="image/imageG.png">
+							</div>
+							<div class="contentsWhite" style="display: none;">
+								<img class="lineIcon" src="image/camera3.png">
+								<img class="lineIcon" src="image/image.png">
+							</div>
+							<div id="notsendmessage" style="background-color: #EDEFF3;">
+							</div>
+							<div class="contentsBlack">
+								<img class="lineIcon" src="image/mikeB.png">
+							</div>
+							<div class="contentsGray" style="display: none;">
+								<img class="lineIcon" src="image/mikeG.png">
+							</div>
+							<div class="contentsWhite" style="display: none;">
+								<img class="lineIcon" src="image/mike.png">
+							</div>
 						</div>
 					</div>
+					<input type="checkbox" name="delmm" id="delmm" onclick="delmesm(this)">
+					<label for="delmm">メッセージ削除メニュー表示</label>
+					<div id="mesdel" style="display: none;">
+						<div>
+							<input type="checkbox" name="delmmall" id="delmmall" onchange="delmesm(this)">
+							<label for="delmmall">メッセージ全削除</label>
+						</div>
+						<select name="meslist" onchange="changeSender(this)">
+							<option value="0" hidden="">どのメッセ？</option>
+						</select>
+						<button type="button" name="delmessage" class="whitebutton" onclick="delmessage()">メッセ削除</button>
+					</div>
+					<script type="text/javascript" src="js/datacreate/previewCreate.js"></script>
 				</div>
-				<input type="checkbox" name="delmm" id="delmm" onclick="delmesm(this)">
-				<label for="delmm">メッセージ削除メニュー表示</label>
-				<div id="mesdel" style="display: none;">
-					<div>
-						<input type="checkbox" name="delmmall" id="delmmall" onchange="delmesm(this)">
-						<label for="delmmall">メッセージ全削除</label>
-					</div>
-					<select name="meslist" onchange="changeSender(this)">
-						<option value="0" hidden="">どのメッセ？</option>
-					</select>
-					<button type="button" name="delmessage" class="whitebutton" onclick="delmessage()">メッセ削除</button>
-				</div>
-				<script type="text/javascript" src="js/datacreate/previewCreate.js"></script>
 			</div>
 		</div>
 		<div style="display: inline-block; margin: 0 auto;">
