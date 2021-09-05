@@ -103,7 +103,7 @@ function selectadd(obj){
 
 	obj.innerHTML = 'メッセメンバー<br>名前アイコン追加変更'
 
-	mesmenu.style = 'display: block;'
+	mesmenu.style = 'display: inline-block;'
 
 	var my = document.getElementById('green');
 	var iii = -1;
