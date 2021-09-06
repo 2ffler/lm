@@ -1,7 +1,7 @@
 var adm = 0;
 
 tttTOP = /[〝(（「『〔｛【゛゜]/g;
-tttBOTTOM = /[〜〟，、。．・：；？！－→←↑↓)）」』〕｝】々ぁぃぅぇぉっゃゅょァィゥェォッャュョ]/g
+tttBOTTOM = /[〜〟，、。．・：；？！!?－→←↑↓)）」』〕｝】々ぁぃぅぇぉっゃゅょァィゥェォッャュョ]/g
 tttKIGO = /[―…ー]/
 
 function imageCreateThis(image, nameing) {
