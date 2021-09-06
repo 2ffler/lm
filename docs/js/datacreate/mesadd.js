@@ -4,7 +4,7 @@ tttTOP = /[〝(（「『〔｛【゛゜]/g;
 tttBOTTOM = /[〜〟，、。．・：；？！!?－→←↑↓)）」』〕｝】々ぁぃぅぇぉっゃゅょァィゥェォッャュョ]/g
 tttKIGO = /[―…ー]/
 
-function imageCreateThis(image, nameing) {
+function imageCreateThis(image, nameing, which) {
 	const file = document.querySelector(nameing).files[0];
 	var reader = new FileReader()
 
@@ -21,8 +21,12 @@ function imageCreateThis(image, nameing) {
 	// ファイル読み取りに成功したとき
 	reader.onload = function() {
 		image.innerHTML = `<img src="${reader.result}">`
-		if (nameing.indexOf('icon_') != -1){
+		if (which == 'none'){
 			image.innerHTML = `<img src="${reader.result}" class="LinEiconPre">`;
+		} else if (which == 'left'){
+			image.className = 'imgLeft'
+		} else if (which == 'right'){
+			image.className = 'imgRight'
 		};
 	};
 };
@@ -144,7 +148,7 @@ function addmessage(obj) {
 
 		if (which == 'left') {
 			talk.appendChild(icon)
-			imageCreateThis(icon, `input[id='icon_${check2sender}']`)
+			imageCreateThis(icon, `input[id='icon_${check2sender}']`, 'none')
 		};
 
 		textmessage.className = `${which}Chatting`
@@ -171,7 +175,7 @@ function addmessage(obj) {
 		if (check3type == 5){
 			//イラスト
 
-			imageCreateThis(txtContents, "input[id='mesImage']")
+			imageCreateThis(txtContents, "input[id='mesImage']", which)
 
 			delmes += '＜画像＞'
 
