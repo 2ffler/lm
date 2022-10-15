@@ -182,58 +182,57 @@ function addmessage(obj) {
 		} else {
 
 			ttt = document.querySelector("textarea[name='message']").value;
+			var newtext = ttt.split('\n');
+			ttt = newtext.join('¶');
 
-			if (ttt.length > 19){
-				ttt = ttt.replace(/<br>/g, '¶');
-				tttlist = ttt.split('');
+			tttlist = ttt.split('');
 
-				resultList = []
-				resultMes = []
-				checkIT = 1
+			resultList = []
+			resultMes = []
+			checkIT = 1
 
-				for (let i in tttlist){
+			for (let i in tttlist){
 
-					if (tttlist[i] == '¶'){
-						resultMes.push(resultList)
-						resultList = []
-						continue
-					};
+				if (tttlist[i] == '¶'){
+					resultMes.push(resultList)
+					resultList = []
+					continue
+				};
 
-					resultList.push(tttlist[i])
+				resultList.push(tttlist[i])
 
-					if (resultList.length > 18){
-						resultMes.push(resultList)
+				if (resultList.length > 18){
+					resultMes.push(resultList)
 
-						resultList = []
+					resultList = []
 
-						if (tttlist[i].match(tttTOP) || tttlist.length > Number(i) + 1 && (tttlist[Number(i) + 1].match(tttBOTTOM) || (tttlist[i].match(tttKIGO) && tttlist[Number(i) + 1].match(tttKIGO)))){
+					if (tttlist[i].match(tttTOP) || tttlist.length > Number(i) + 1 && (tttlist[Number(i) + 1].match(tttBOTTOM) || (tttlist[i].match(tttKIGO) && tttlist[Number(i) + 1].match(tttKIGO)))){
+						resultList.unshift(resultMes[resultMes.length - 1].pop())
+
+						resultMes[resultMes.length - 1]
+
+						while(resultMes.slice(-1)[0].slice(-1)[0].match(tttTOP) || resultList[0].match(tttBOTTOM) || resultMes.slice(-1)[0].slice(-1)[0].match(tttKIGO) && resultList[0].match(tttKIGO)){
 							resultList.unshift(resultMes[resultMes.length - 1].pop())
-
-							resultMes[resultMes.length - 1]
-
-							while(resultMes.slice(-1)[0].slice(-1)[0].match(tttTOP) || resultList[0].match(tttBOTTOM) || resultMes.slice(-1)[0].slice(-1)[0].match(tttKIGO) && resultList[0].match(tttKIGO)){
-								resultList.unshift(resultMes[resultMes.length - 1].pop())
-							};
 						};
 					};
 				};
-
-				if (resultList.length > 0){
-					resultMes.push(resultList)
-				};
-
-				resultList = ''
-
-				for (let i in resultMes){
-					resultList += resultMes[i].join('')
-
-					if (resultMes.length > i){
-						resultList += '¶'
-					};
-				};
-
-				ttt = resultList.replace(/¶/g, '<br>')
 			};
+
+			if (resultList.length > 0){
+				resultMes.push(resultList)
+			};
+
+			resultList = ''
+
+			for (let i in resultMes){
+				resultList += resultMes[i].join('')
+
+				if (resultMes.length > i){
+					resultList += '¶'
+				};
+			};
+
+			ttt = resultList.replace(/¶/g, '<br>')
 
 			txtP.innerHTML = ttt
 
