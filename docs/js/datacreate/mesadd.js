@@ -182,8 +182,12 @@ function addmessage(obj) {
 		} else {
 
 			ttt = document.querySelector("textarea[name='message']").value;
+			console.log(ttt);
+
 			var newtext = ttt.split('\n');
 			ttt = newtext.join('¶');
+
+			console.log(ttt);
 
 			tttlist = ttt.split('');
 
