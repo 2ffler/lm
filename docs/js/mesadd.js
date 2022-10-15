@@ -231,7 +231,7 @@ function addmessage(obj) {
 			for (let i in resultMes){
 				resultList += resultMes[i].join('')
 
-				if (resultMes.length > i){
+				if (resultMes.length > i && resultMes[i+1] != '¶'){
 					resultList += '¶'
 				};
 			};
